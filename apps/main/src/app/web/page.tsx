@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/constants';
+import { KpiGrid } from '@/components/ui/KpiGrid';
 
 export const metadata: Metadata = {
   title: 'Web & AI — Nikolas Stepan',
@@ -36,21 +37,7 @@ export default function WebTab() {
         Blender-driven 3D configurators, agent orchestration governance. Full-stack from infra to UI.
       </p>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-        {KPIS.map((k) => (
-          <div
-            key={k.label}
-            className="border border-[var(--rule)] rounded-2xl px-6 py-7 bg-[var(--paper-warm)]"
-          >
-            <div className="font-serif font-light text-[clamp(36px,5vw,52px)] leading-none tracking-[-0.03em] text-[var(--ink)]">
-              {k.num}
-            </div>
-            <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-mute)] mt-4">
-              {k.label}
-            </div>
-          </div>
-        ))}
-      </div>
+      <KpiGrid kpis={KPIS} />
 
       <div className="max-w-[760px] space-y-3 mb-14">
         {HIGHLIGHTS.map((h, i) => (
