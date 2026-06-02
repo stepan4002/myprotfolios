@@ -44,10 +44,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide default cursor only on pointer devices (desktop) */
-@media (pointer: fine) {
-  html, body, a, button, [role="button"], input, select, textarea { cursor: none; }
-}
+/* Default cursor restored — the custom Cursor component was causing perceived input weirdness */
 
 a { color: inherit; text-decoration: none; }
 

@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, Suspense } from 'react';
+import { useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -269,6 +269,21 @@ function CameraSetup() {
 /* ============ component ============ */
 export default function Constellation() {
   const [hud, setHud] = useState(null);
+  const [shiftHeld, setShiftHeld] = useState(false);
+
+  useEffect(() => {
+    const down = (e) => { if (e.key === 'Shift') setShiftHeld(true); };
+    const up   = (e) => { if (e.key === 'Shift') setShiftHeld(false); };
+    const blur = () => setShiftHeld(false);
+    window.addEventListener('keydown', down);
+    window.addEventListener('keyup',   up);
+    window.addEventListener('blur',    blur);
+    return () => {
+      window.removeEventListener('keydown', down);
+      window.removeEventListener('keyup',   up);
+      window.removeEventListener('blur',    blur);
+    };
+  }, []);
 
   return (
     <section className="constellation" id="constellation">
@@ -280,12 +295,15 @@ export default function Constellation() {
           </div>
           <p className="section-sub">
             A Master Executive at the centre, five group services, and five company pods.
-            Drag to orbit · hover any node to see the agent.
+            <strong> Drag to orbit · Shift + scroll to zoom.</strong> Hover any node to see the agent.
           </p>
         </div>
       </div>
 
       <div className="constellation-stage">
+        <div className={`constellation-hint ${shiftHeld ? 'on' : ''}`} aria-hidden>
+          <kbd>shift</kbd> + scroll to zoom &nbsp;·&nbsp; drag to orbit
+        </div>
         <Canvas
           dpr={[1, 1.75]}
           gl={{ antialias: true, powerPreference: 'high-performance' }}
@@ -296,7 +314,7 @@ export default function Constellation() {
             <Scene onHover={setHud} onUnhover={() => setHud(null)} />
             <OrbitControls
               enablePan={false}
-              enableZoom={true}
+              enableZoom={shiftHeld}    // only zoom while Shift is held — otherwise page scrolls naturally
               minDistance={6}
               maxDistance={20}
               autoRotate={false}

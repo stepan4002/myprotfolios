@@ -10,55 +10,143 @@ export const metadata: Metadata = {
 };
 
 const KPIS = [
-  { num: '156', label: 'Events in 2025' },
+  { num: '156',  label: 'Events in 2025' },
   { num: '20k+', label: 'Participants' },
   { num: '4 yrs', label: 'GemArt programme' },
-  { num: '5 langs', label: 'Guest hosting' },
+  { num: '5',    label: 'Languages working' },
 ];
 
-const HIGHLIGHTS = [
-  'Festivals, wine tastings, Christmas markets, gallery openings, artisan workshops — owned end-to-end.',
-  'Hosted international guests on site visits across Gemer in French, Spanish, English, Czech & Slovak.',
-  'Negotiated contracts with artisans, wine producers, caterers, venues and logistics suppliers.',
-  'Built a repeatable vendor roster and ran promotion across 28+ social channels.',
+const FORMATS = [
+  {
+    name: 'Festivals & public squares',
+    body: '500-seat regional gastro festivals on the main public square — programming, permits, supplier panels, bilingual signage, on-the-day production.',
+  },
+  {
+    name: 'Cultural-creative association',
+    body: 'GemArt: programming, venue contracts, supplier panels, budget, multilingual marketing, day-of production, post-event reporting across eight event categories.',
+  },
+  {
+    name: 'Workshops & team-buildings',
+    body: 'Hand-blown glass, ceramics, silvering, painting. Half-day B2B team-buildings (8–20 people), B2C drop-ins, school programmes, multi-day intensives.',
+  },
+  {
+    name: 'Luxury maison & couture',
+    body: 'Multi-city couture tour through Prague, Budapest and Rožňava. Castle reconstruction site visits. Curated-pair wine tastings on a heritage estate.',
+  },
+  {
+    name: 'Gallery openings & exhibitions',
+    body: 'Gallery openings with international guests — curated programmes, multilingual catering pairings, hospitality flow.',
+  },
+  {
+    name: 'Christmas markets & seasonal',
+    body: 'Stall maps, queue plans, cashless partnerships, vendor coordination. Cross-border guest pulls via bilingual road-edge signage.',
+  },
+];
+
+const STACK = [
+  ['Concept & proposal', 'Brief → budget → programme → pitch deck → contracts'],
+  ['Supplier & venue', 'Artisans, wine producers, caterers, venues, logistics — negotiated and managed'],
+  ['Permits & compliance', 'Municipal liaison, fire-safety sign-off, GDPR-compliant guest data, insurance, allergen logs'],
+  ['Marketing & promotion', '28+ social channels, campaign pages, partner co-marketing, multilingual collateral'],
+  ['Day-of production', 'Run sheets, vendor coordination, multilingual guest hosting, calm under peak load'],
+  ['Post-event', 'Settlement, partner reports, learnings doc, references and repeat-business motion'],
 ];
 
 export default function EventsTab() {
   return (
-    <div className="page-section pt-32 pb-24 md:pt-40">
-      <div className="section-label mb-6">Pillar 01</div>
-      <h1 className="font-serif font-light text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-0.03em] text-[var(--ink)] mb-10">
-        Cultural events,{' '}
-        <em className="italic font-light">at scale.</em>
-      </h1>
-      <p className="max-w-[760px] text-[var(--ink-soft)] text-[clamp(17px,1.9vw,21px)] leading-[1.55] mb-14">
-        Co-Founder of GemArt — a cultural-arts institute in the Gemer region of Slovakia. Four years of
-        festivals, tastings, gallery openings, Christmas markets and artisan workshops. From proposal to
-        wrap-up, in five languages, with calm under seasonal peak load.
-      </p>
+    <>
+      <section className="page-section pt-40 md:pt-52 pb-20">
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent)] mb-10">
+          Pillar I · Events & Hospitality
+        </div>
 
-      <KpiGrid kpis={KPIS} />
+        <h1 className="font-serif font-light text-[clamp(42px,8vw,96px)] leading-[0.96] tracking-[-0.03em] text-[var(--ink)] mb-12 max-w-[1000px]">
+          Cultural events,{' '}
+          <em className="italic font-light">at scale.</em>
+        </h1>
 
-      <div className="max-w-[760px] space-y-3 mb-14">
-        {HIGHLIGHTS.map((h, i) => (
-          <div key={i} className="flex gap-4">
-            <span className="font-mono text-[11px] text-[var(--accent)] mt-1">0{i + 1}</span>
-            <p className="text-[var(--ink-soft)] text-[16px] leading-[1.65]">{h}</p>
+        <p className="max-w-[760px] font-serif font-light text-[clamp(18px,2vw,24px)] leading-[1.45] tracking-[-0.01em] text-[var(--ink-soft)] mb-20">
+          Co-Founder of <strong className="text-[var(--ink)] font-medium">GemArt</strong> — a cultural-arts
+          institute in the Gemer region of Slovakia. <strong className="text-[var(--ink)] font-medium">156
+          events delivered in 2025 with 20,000+ participants</strong>, across festivals, wine tastings,
+          gallery openings, Christmas markets and artisan workshops. From proposal to wrap-up, in five
+          languages, with calm under seasonal peak load.
+        </p>
+
+        <KpiGrid kpis={KPIS} />
+      </section>
+
+      <div className="page-section">
+        <div className="h-px bg-[var(--rule)]" />
+      </div>
+
+      {/* Formats — six format cards */}
+      <section className="page-section py-24 md:py-32">
+        <div className="section-label mb-14">Six formats I run regularly</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FORMATS.map((f) => (
+            <div
+              key={f.name}
+              className="p-8 rounded-2xl border border-[var(--rule)] bg-[var(--paper-warm)] hover:bg-[var(--paper-deep)] hover:border-[var(--ink)] transition-all"
+            >
+              <h3 className="font-serif text-[22px] leading-tight tracking-[-0.015em] text-[var(--ink)] mb-4">
+                {f.name}
+              </h3>
+              <p className="text-[14px] leading-[1.7] text-[var(--ink-soft)]">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="page-section">
+        <div className="h-px bg-[var(--rule)]" />
+      </div>
+
+      {/* Stack — operating discipline */}
+      <section className="page-section py-24 md:py-32">
+        <div className="section-label mb-14">Operating discipline · single source-of-truth brief</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-[1000px]">
+          {STACK.map(([title, body], i) => (
+            <div key={title} className="flex gap-6">
+              <div className="font-mono text-[12px] text-[var(--accent)] mt-1 min-w-[28px]">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div>
+                <h4 className="font-serif text-[19px] tracking-[-0.01em] text-[var(--ink)] mb-3">{title}</h4>
+                <p className="text-[14px] leading-[1.65] text-[var(--ink-soft)]">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA — light text on dark pill (fixes the dark-on-dark complaint) */}
+      <section className="page-section py-32">
+        <div className="border-t border-[var(--rule)] pt-16">
+          <h2 className="font-serif font-light text-[clamp(28px,4vw,48px)] leading-[1.1] tracking-[-0.02em] text-[var(--ink)] max-w-[700px] mb-10">
+            Want to see how I'd run an event for you?
+          </h2>
+
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+            <a
+              href={SITE.subdomains.events}
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--ink)] text-[var(--paper)] hover:bg-[var(--accent)] transition-colors text-[14px] font-medium"
+            >
+              <span style={{ color: 'var(--paper)' }}>See the full events portfolio</span>
+              <span style={{ color: 'var(--paper)' }}>→</span>
+            </a>
+            <span className="font-mono text-[12px] text-[var(--ink-mute)] uppercase tracking-[0.1em]">
+              events.nikolasstepan.com
+            </span>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="font-mono text-[13px] text-[var(--ink-soft)] hover:text-[var(--accent)] transition-colors border-b border-[var(--rule)] hover:border-[var(--accent)]"
+            >
+              {SITE.email}
+            </a>
           </div>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap items-center gap-4 pt-8 border-t border-[var(--rule)]">
-        <Link
-          href={SITE.subdomains.events}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--ink)] text-[var(--paper)] text-[14px] font-medium hover:bg-[var(--accent)] transition-colors"
-        >
-          See the full events portfolio →
-        </Link>
-        <span className="font-mono text-[12px] text-[var(--ink-mute)]">
-          events.nikolasstepan.com
-        </span>
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

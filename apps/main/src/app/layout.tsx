@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import { fraunces, geist, jetbrainsMono } from '@/lib/fonts';
 import { SITE } from '@/lib/constants';
-import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ClientShell } from '@/components/layout/ClientShell';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import './globals.css';
 
@@ -30,13 +28,10 @@ export default function RootLayout({
       className={`${fraunces.variable} ${geist.variable} ${jetbrainsMono.variable}`}
     >
       <body>
-        <ClientShell />
         <GrainOverlay />
-        <SmoothScroll>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

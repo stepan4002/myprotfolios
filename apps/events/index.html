@@ -967,13 +967,29 @@
   .name .em { display: inline-block; transition: transform .6s cubic-bezier(.22,1,.36,1); }
   .name:hover .em { transform: translateX(8px); }
   .ink-blot {
-    position: fixed; left: 0; top: 0; width: 420px; height: 420px;
+    position: fixed; left: 0; top: 0; width: 560px; height: 560px;
     border-radius: 50%; pointer-events: none; z-index: 0;
-    background: radial-gradient(circle, rgba(177,74,47,0.06) 0%, rgba(177,74,47,0.02) 35%, transparent 70%);
+    background: radial-gradient(circle, rgba(177,74,47,0.20) 0%, rgba(177,74,47,0.10) 25%, rgba(177,74,47,0.04) 50%, transparent 75%);
     transform: translate(-50%, -50%);
-    transition: opacity .4s ease;
+    transition: opacity .35s ease, width .3s, height .3s;
     opacity: 0; mix-blend-mode: multiply;
+    filter: blur(20px);
   }
+  .ink-blot.active { opacity: 1; }
+  .ink-blot.over-link { width: 80px; height: 80px; }
+  /* Magnetic stat hover */
+  .stat:hover .v { transform: translateY(-3px) scale(1.04); color: var(--accent); transition: transform .35s cubic-bezier(.22,1,.36,1), color .35s; }
+  .stat:hover .v em { color: var(--accent); }
+  .stat { transition: transform .3s cubic-bezier(.22,1,.36,1); }
+  .stat:hover { transform: translateY(-4px); }
+  /* Letter pop-up on hero name */
+  .name-letter { display: inline-block; will-change: transform, opacity; }
+  /* Subtle parallax shift class — applied via JS */
+  .parallax-slow { will-change: transform; }
+  /* Animated section dividers */
+  hr, .divider { position: relative; overflow: visible; }
+  /* Magnetic hover on links */
+  a.magnet { display: inline-block; transition: transform .3s cubic-bezier(.22,1,.36,1); will-change: transform; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     #ink, .ink-blot { display: none !important; }
@@ -1074,22 +1090,94 @@
   addEventListener("resize", () => { resize(); seed(); });
 })();
 
-/* ---- 4. Ink-blot cursor ---- */
+/* ---- 4. Ink-blot cursor (bigger, more visible, shrinks over links) ---- */
 (function(){
   const blot = document.getElementById("inkBlot");
   if (!blot || matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(hover: none)").matches) return;
-  let tx = 0, ty = 0, cx = 0, cy = 0, visible = false;
+  let tx = innerWidth / 2, ty = innerHeight / 2, cx = tx, cy = ty, visible = false;
   addEventListener("pointermove", (e) => {
     tx = e.clientX; ty = e.clientY;
-    if (!visible) { blot.style.opacity = "1"; visible = true; }
+    if (!visible) { blot.classList.add("active"); visible = true; }
+    // Shrink when hovering a link
+    const t = e.target;
+    if (t && (t.tagName === "A" || t.closest("a"))) {
+      blot.classList.add("over-link");
+    } else {
+      blot.classList.remove("over-link");
+    }
   });
-  addEventListener("pointerleave", () => { blot.style.opacity = "0"; visible = false; });
+  addEventListener("pointerleave", () => { blot.classList.remove("active"); visible = false; });
   (function loop(){
-    cx += (tx - cx) * 0.15;
-    cy += (ty - cy) * 0.15;
+    cx += (tx - cx) * 0.16;
+    cy += (ty - cy) * 0.16;
     blot.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
     requestAnimationFrame(loop);
   })();
+})();
+
+/* ---- 5. Magnetic hover on prominent links ---- */
+(function(){
+  if (matchMedia("(hover: none)").matches) return;
+  const links = document.querySelectorAll('a[href^="mailto"], a[href^="tel"], a[href^="https://linkedin"], .contact a, footer a, .hero a, header a');
+  links.forEach(link => {
+    link.classList.add("magnet");
+    link.addEventListener("pointermove", (e) => {
+      const r = link.getBoundingClientRect();
+      const dx = (e.clientX - r.left - r.width / 2) * 0.25;
+      const dy = (e.clientY - r.top  - r.height / 2) * 0.25;
+      link.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+    link.addEventListener("pointerleave", () => { link.style.transform = ""; });
+  });
+})();
+
+/* ---- 6. Subtle parallax on hero name letters during scroll ---- */
+(function(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const name = document.querySelector(".name");
+  if (!name) return;
+  let scheduled = false;
+  addEventListener("scroll", () => {
+    if (scheduled) return; scheduled = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      name.style.transform = `translateY(${y * 0.18}px)`;
+      name.style.opacity = String(Math.max(0, 1 - y / 700));
+      scheduled = false;
+    });
+  }, { passive: true });
+})();
+
+/* ---- 7. Letter-by-letter pop-in on the hero name (one-time on load) ---- */
+(function(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const nameEl = document.querySelector(".name");
+  if (!nameEl) return;
+  const wrap = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const frag = document.createDocumentFragment();
+      node.textContent.split("").forEach(c => {
+        const s = document.createElement("span");
+        s.className = "name-letter";
+        s.textContent = c;
+        s.style.opacity = "0";
+        s.style.transform = "translateY(0.5em) rotate(-3deg)";
+        s.style.transition = "opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)";
+        frag.appendChild(s);
+      });
+      node.replaceWith(frag);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      Array.from(node.childNodes).forEach(wrap);
+    }
+  };
+  Array.from(nameEl.childNodes).forEach(wrap);
+  const letters = nameEl.querySelectorAll(".name-letter");
+  letters.forEach((l, i) => {
+    setTimeout(() => {
+      l.style.opacity = "1";
+      l.style.transform = "translateY(0) rotate(0)";
+    }, 200 + i * 35);
+  });
 })();
 </script>
 </body>

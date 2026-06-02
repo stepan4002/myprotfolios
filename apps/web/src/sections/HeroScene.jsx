@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -137,25 +137,34 @@ function NetworkGroup() {
   const target = useRef({ x: 0, y: 0 });
   const cur = useRef({ x: 0, y: 0 });
   const { points, edges } = useMemo(() => {
-    const pts = fibonacciSphere(280, 3.6);
-    // jitter a touch so it doesn't look mechanical
+    // Smaller sphere — less screen real estate, less distraction from title
+    const pts = fibonacciSphere(220, 2.4);
     pts.forEach((p) => p.add(new THREE.Vector3(
-      (Math.random() - 0.5) * 0.18,
-      (Math.random() - 0.5) * 0.18,
-      (Math.random() - 0.5) * 0.18
+      (Math.random() - 0.5) * 0.14,
+      (Math.random() - 0.5) * 0.14,
+      (Math.random() - 0.5) * 0.14
     )));
-    const eds = nearestNeighborEdges(pts, 3, 0.95);
+    const eds = nearestNeighborEdges(pts, 3, 0.85);
     return { points: pts, edges: eds };
   }, []);
 
-  useFrame(({ mouse, clock }) => {
-    target.current.x = mouse.y * 0.3;
-    target.current.y = mouse.x * 0.4;
-    cur.current.x += (target.current.x - cur.current.x) * 0.04;
-    cur.current.y += (target.current.y - cur.current.y) * 0.04;
+  // Window-level pointer tracking — fixes "mouse leaving" weirdness
+  // (R3F's mouse uniform reads as NDC inside the canvas only)
+  useEffect(() => {
+    const onMove = (e) => {
+      target.current.y = ((e.clientX / window.innerWidth)  - 0.5) * 0.5;
+      target.current.x = ((e.clientY / window.innerHeight) - 0.5) * 0.3;
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    return () => window.removeEventListener('pointermove', onMove);
+  }, []);
+
+  useFrame(({ clock }) => {
+    cur.current.x += (target.current.x - cur.current.x) * 0.05;
+    cur.current.y += (target.current.y - cur.current.y) * 0.05;
     if (group.current) {
-      group.current.rotation.x = cur.current.x + Math.sin(clock.elapsedTime * 0.08) * 0.05;
-      group.current.rotation.y = cur.current.y + clock.elapsedTime * 0.06;
+      group.current.rotation.x = cur.current.x + Math.sin(clock.elapsedTime * 0.08) * 0.04;
+      group.current.rotation.y = cur.current.y + clock.elapsedTime * 0.05;
     }
   });
 
@@ -171,12 +180,12 @@ function NetworkGroup() {
 function SceneInner() {
   const { camera } = useThree();
   useMemo(() => {
-    camera.position.set(0, 0, 9);
+    camera.position.set(0, 0, 11);  // pulled back → sphere appears smaller
     camera.lookAt(0, 0, 0);
   }, [camera]);
   return (
     <>
-      <fog attach="fog" args={['#0A0A0B', 8, 14]} />
+      <fog attach="fog" args={['#0A0A0B', 7, 13]} />
       <NetworkGroup />
     </>
   );

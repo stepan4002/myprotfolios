@@ -3,396 +3,540 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nikolas Stepan — Sales & Business Development</title>
-<meta name="description" content="Founder-led commercial track across three ventures. Multilingual B2B and B2C sales in five languages, four Central-European markets. Numbers that close." />
-<meta property="og:title" content="Nikolas Stepan — Sales & Business Development" />
-<meta property="og:description" content="3 ventures founded · 6 years selling · 5 native languages · 4 markets · numbers that close." />
+<title>Nikolas Stepan — Sales · Annual Report 2026</title>
+<meta name="description" content="Founder-led commercial work. Three ventures, six years, five native languages, four markets. Read as an annual report." />
+<meta property="og:title" content="Nikolas Stepan — Sales · Annual Report" />
+<meta property="og:description" content="Six years selling across three ventures. Five native languages, four markets, US gallery placement. The annual report." />
 <meta property="og:type" content="profile" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Manrope:wght@500..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0F1F;
-  --bg-card:#0E1428;
-  --bg-elev:#141B33;
-  --ink:#EEF2FB;
-  --ink-soft:#B4BED4;
-  --ink-mute:#7A88A8;
-  --rule:#1E2747;
-  --accent:#34D399;          /* emerald — money/growth */
-  --accent-deep:#0EA371;
-  --accent-soft:#A7F3D0;
-  --warn:#F59E0B;
-  --halo: rgba(52, 211, 153, 0.18);
+  /* Newsprint cream + ink + saturated brick-red accent (editorial, not "AI generic") */
+  --paper:#F5F1E6;
+  --paper-deep:#EDE6D2;
+  --paper-warm:#F0EADA;
+  --ink:#13110D;
+  --ink-soft:#3D362D;
+  --ink-mute:#76695A;
+  --rule:#1F1B14;
+  --rule-soft:#C9C0AA;
+  --accent:#C13D26;       /* bold saturated red */
+  --accent-deep:#7A2515;
+  --accent-soft:#E6927E;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+html,body{background:var(--paper);color:var(--ink);scroll-behavior:smooth}
 body{
-  font-family:"Inter",system-ui,-apple-system,sans-serif;
-  font-size:16px;
-  line-height:1.55;
-  letter-spacing:-0.01em;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:16px;line-height:1.55;letter-spacing:-0.008em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  /* subtle newsprint grain */
   background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(52,211,153,0.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 30%, rgba(14,163,113,0.06), transparent 60%);
+    radial-gradient(rgba(19,17,13,0.02) 1px, transparent 1px),
+    radial-gradient(rgba(19,17,13,0.015) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 1px;
 }
 a{color:inherit;text-decoration:none}
-button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+.serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
 
 /* Layout */
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
-section{padding:88px 0;border-bottom:1px solid var(--rule)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+section{padding:96px 0;border-bottom:2px solid var(--rule)}
 section:last-of-type{border-bottom:0}
 .eyebrow{
   font-family:"JetBrains Mono",monospace;
-  font-size:12px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:18px;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:24px;
 }
-h1,h2,h3{font-family:"Manrope",sans-serif;font-weight:700;letter-spacing:-0.025em}
-h1{font-size:clamp(40px,7vw,80px);line-height:1.02}
-h2{font-size:clamp(28px,4vw,44px);line-height:1.1;margin-bottom:32px}
-h3{font-size:20px;line-height:1.3;margin-bottom:8px}
-p{color:var(--ink-soft)}
-.lead{font-size:clamp(18px,2vw,22px);color:var(--ink-soft);max-width:780px}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:300;letter-spacing:-0.025em}
 
-/* Nav */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(10,15,31,0.78);
-  backdrop-filter:saturate(140%) blur(10px);
-  -webkit-backdrop-filter:saturate(140%) blur(10px);
-  border-bottom:1px solid var(--rule);
+/* MASTHEAD — newspaper top strip */
+.mast{
+  border-bottom:2px solid var(--rule);
+  border-top:8px solid var(--ink);
+  padding:24px 0 18px;
+  position:sticky;top:0;background:var(--paper);z-index:50;
+  backdrop-filter:saturate(140%);
 }
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
-.brand{font-family:"Manrope",sans-serif;font-weight:700;letter-spacing:-0.01em}
-.brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--halo);margin-right:10px;vertical-align:middle}
-.nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-soft)}
-.nav-links a:hover{color:var(--ink)}
-.cta{
-  padding:10px 18px;border-radius:999px;background:var(--accent);color:#04210F;font-weight:600;font-size:14px;
-  transition:transform .15s ease, box-shadow .15s ease;
+.mast .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.mast .title{font-family:"Fraunces",Georgia,serif;font-size:clamp(20px,2.2vw,28px);font-weight:400;letter-spacing:-0.02em;line-height:1}
+.mast .title em{font-style:italic;font-weight:300;color:var(--accent)}
+.mast .meta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.1em;text-transform:uppercase;display:flex;gap:24px;flex-wrap:wrap}
+.mast .meta .pulse{display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+.mast .meta .pulse::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(193,61,38,0.18);animation:beat 2s ease-in-out infinite}
+@keyframes beat{0%,100%{box-shadow:0 0 0 4px rgba(193,61,38,0.18)}50%{box-shadow:0 0 0 10px rgba(193,61,38,0.02)}}
+.mast a.cta{padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:-0.01em;font-weight:500;transition:background .2s}
+.mast a.cta:hover{background:var(--accent)}
+
+/* HERO — editorial cover */
+.hero{padding:80px 0 60px}
+.hero .vol{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:0.25em;color:var(--ink-mute);text-transform:uppercase;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0;margin-bottom:60px}
+.hero .vol span{color:var(--ink);font-weight:600}
+.cover-title{
+  font-family:"Fraunces",Georgia,serif;font-weight:300;line-height:0.92;letter-spacing:-0.035em;
+  font-size:clamp(60px,11vw,184px);
+  color:var(--ink);
 }
-.cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(52,211,153,0.25)}
-
-/* Hero */
-.hero{padding:120px 0 88px}
-.hero h1 span.accent{color:var(--accent)}
-.hero .lead{margin-top:28px}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:24px;margin-top:36px;
-  font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink-mute);
+.cover-title em{font-style:italic;font-weight:300;color:var(--accent)}
+.cover-title .ws{display:inline-block;width:0.3em}
+.cover-bottom{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:80px;align-items:end}
+.cover-lede{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(22px,2.4vw,30px);line-height:1.3;letter-spacing:-0.015em;color:var(--ink-soft);max-width:560px}
+.cover-lede em{font-style:italic;color:var(--accent)}
+.cover-meta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.1em;text-transform:uppercase;line-height:2;text-align:right}
+.cover-meta b{color:var(--ink);font-weight:500;font-size:12px}
+@media (max-width:880px){
+  .cover-bottom{grid-template-columns:1fr}
+  .cover-meta{text-align:left}
 }
-.hero-meta span{display:inline-flex;align-items:center;gap:8px}
-.hero-meta .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--halo)}
 
-/* KPIs */
-.kpis{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px;
-}
-.kpi{
-  background:var(--bg-card);border:1px solid var(--rule);border-radius:18px;padding:28px 24px;
-  transition:transform .2s ease, border-color .2s ease;
-}
-.kpi:hover{transform:translateY(-2px);border-color:rgba(52,211,153,0.35)}
-.kpi .num{font-family:"Manrope",sans-serif;font-weight:800;font-size:clamp(40px,5vw,56px);line-height:1;letter-spacing:-0.03em;color:var(--ink)}
-.kpi .num .unit{font-size:0.45em;color:var(--accent);margin-left:4px;vertical-align:5px}
-.kpi .label{margin-top:10px;font-size:13px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:0.1em}
-.kpi .sub{margin-top:14px;font-size:14px;color:var(--ink-soft);line-height:1.5}
-@media (max-width: 900px){ .kpis{grid-template-columns:repeat(2,1fr)} }
+/* TABLE OF CONTENTS */
+.toc{padding:60px 0}
+.toc-label{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.2em;color:var(--ink-mute);text-transform:uppercase;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.toc-list{margin-top:20px}
+.toc-item{display:grid;grid-template-columns:60px 1fr auto;gap:20px;padding:18px 0;border-bottom:1px solid var(--rule-soft);align-items:center;transition:background .2s,padding-left .25s ease}
+.toc-item:hover{background:var(--paper-deep);padding-left:14px}
+.toc-item .ch{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);letter-spacing:0.08em}
+.toc-item .name{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(20px,2.2vw,28px);letter-spacing:-0.02em;color:var(--ink)}
+.toc-item .name em{font-style:italic;color:var(--accent)}
+.toc-item .pg{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.1em}
 
-/* Ventures */
-.ventures{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.venture{background:var(--bg-card);border:1px solid var(--rule);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:14px}
-.venture .role{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.16em;color:var(--accent);text-transform:uppercase}
-.venture .name{font-family:"Manrope",sans-serif;font-weight:700;font-size:24px;color:var(--ink)}
-.venture .dates{font-size:13px;color:var(--ink-mute)}
-.venture .desc{font-size:14px;color:var(--ink-soft);line-height:1.6}
-.venture .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--rule)}
-.venture .stat{font-size:12px;color:var(--ink-mute);font-family:"JetBrains Mono",monospace}
-.venture .stat b{display:block;color:var(--accent);font-size:18px;font-weight:600;margin-bottom:2px}
-@media (max-width: 900px){ .ventures{grid-template-columns:1fr} }
+/* HEADLINE STATS — big numbers, ticker-style */
+.ticker{padding:96px 0;border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
+.ticker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--rule-soft)}
+.tick{padding:36px 28px;border-right:1px solid var(--rule-soft);position:relative}
+.tick .n{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(70px,9vw,140px);line-height:0.85;letter-spacing:-0.05em;color:var(--ink);display:block}
+.tick .n em{font-style:italic;color:var(--accent);font-weight:300}
+.tick .l{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.14em;color:var(--ink-mute);text-transform:uppercase;line-height:1.5}
+.tick .sub{margin-top:14px;font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:240px;font-family:"Inter",sans-serif}
+@media (max-width:900px){.ticker-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* Pipeline visual */
-.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;border-radius:18px;overflow:hidden;border:1px solid var(--rule)}
-.step{background:var(--bg-card);padding:24px 20px;border-right:1px solid var(--rule);position:relative}
-.step:last-child{border-right:0}
-.step .n{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--accent);letter-spacing:0.14em}
-.step .t{font-family:"Manrope",sans-serif;font-weight:600;font-size:16px;color:var(--ink);margin-top:8px}
-.step .d{font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5}
-.step .arrow{position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;background:var(--bg-card);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:translateY(-50%) rotate(45deg);z-index:2}
-.step:last-child .arrow{display:none}
-@media (max-width: 900px){ .pipeline{grid-template-columns:1fr} .step{border-right:0;border-bottom:1px solid var(--rule)} .step .arrow{display:none} }
+/* CHAPTER section style */
+.chapter{padding:120px 0}
+.chap-head{display:grid;grid-template-columns:120px 1fr;gap:48px;margin-bottom:60px;align-items:start}
+.chap-head .num{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;padding-top:14px;border-top:2px solid var(--accent)}
+.chap-head .title{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-0.03em;color:var(--ink)}
+.chap-head .title em{font-style:italic;color:var(--accent)}
+@media (max-width:760px){.chap-head{grid-template-columns:1fr;gap:18px}}
 
-/* Languages → markets */
-.markets{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;align-items:start}
-.markets .col{background:var(--bg-card);border:1px solid var(--rule);border-radius:18px;padding:32px}
-.lang-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--rule)}
-.lang-row:last-child{border-bottom:0}
-.lang-name{font-family:"Manrope",sans-serif;font-weight:600;color:var(--ink)}
-.lang-level{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);letter-spacing:0.1em}
-.market-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-soft)}
-.market-row:last-child{border-bottom:0}
-.market-row b{color:var(--ink);font-weight:600;font-family:"Manrope",sans-serif}
-.market-row .lang-chip{display:inline-block;padding:2px 10px;border:1px solid var(--rule);border-radius:999px;font-size:11px;color:var(--accent);margin-left:6px;font-family:"JetBrains Mono",monospace}
-@media (max-width: 900px){ .markets{grid-template-columns:1fr} }
+/* VENTURE PROFILES */
+.venture{display:grid;grid-template-columns:280px 1fr;gap:60px;padding:48px 0;border-top:1px solid var(--rule-soft);align-items:start}
+.venture:first-of-type{border-top:2px solid var(--ink)}
+.venture .v-head{position:sticky;top:120px}
+.venture .v-name{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:54px;line-height:0.9;letter-spacing:-0.03em;color:var(--ink);margin-bottom:8px}
+.venture .v-role{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:22px}
+.venture .v-motion{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.06em;line-height:1.7;text-transform:uppercase}
+.venture .v-body{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:21px;line-height:1.45;letter-spacing:-0.012em;color:var(--ink-soft)}
+.venture .v-body p+p{margin-top:18px}
+.venture .v-body em{font-style:italic;color:var(--ink)}
+.venture .v-stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--rule-soft)}
+.venture .v-stat{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.14em;color:var(--ink-mute);text-transform:uppercase}
+.venture .v-stat b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:32px;letter-spacing:-0.025em;color:var(--accent);text-transform:none;letter-spacing:-0.025em;margin-bottom:4px}
+@media (max-width:880px){.venture{grid-template-columns:1fr;gap:24px}.venture .v-head{position:static}.venture .v-name{font-size:44px}}
 
-/* Quotes */
-.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
-.quote{background:var(--bg-card);border:1px solid var(--rule);border-radius:18px;padding:32px;position:relative}
-.quote::before{content:"\201C";position:absolute;top:8px;left:18px;font-size:80px;color:var(--accent);opacity:0.25;font-family:Georgia,serif;line-height:1}
-.quote .body{font-size:17px;color:var(--ink);line-height:1.55;font-style:italic;margin-top:8px}
-.quote .who{margin-top:18px;font-size:13px;color:var(--ink-mute);font-family:"JetBrains Mono",monospace;letter-spacing:0.04em}
-.quote.placeholder{border-style:dashed;opacity:0.85}
-.quote.placeholder .body{font-style:normal;color:var(--ink-soft)}
-.quote.placeholder::before{content:"\2026"}
-@media (max-width: 900px){ .quotes{grid-template-columns:1fr} }
+/* SCALE VISUAL — SVG growth */
+.scale-vis{margin:80px 0;padding:48px 0;border-top:1px dashed var(--rule);border-bottom:1px dashed var(--rule)}
+.scale-vis .caption{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.14em;color:var(--ink-mute);text-transform:uppercase;margin-top:24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.scale-vis .caption b{color:var(--ink)}
 
-/* What I sell */
-.sellgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.sell{background:var(--bg-card);border:1px solid var(--rule);border-radius:18px;padding:28px}
-.sell .h{display:flex;align-items:center;gap:12px;font-family:"Manrope",sans-serif;font-weight:700;color:var(--ink);font-size:18px;margin-bottom:14px}
-.sell .h .blip{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--halo)}
-.sell ul{list-style:none}
-.sell li{padding:8px 0;font-size:14px;color:var(--ink-soft);position:relative;padding-left:22px}
-.sell li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:600}
-@media (max-width: 900px){ .sellgrid{grid-template-columns:1fr} }
+/* PIPELINE — bold horizontal */
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:60px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.pipe .step{padding:32px 24px;border-right:1px solid var(--rule-soft);position:relative;transition:background .3s}
+.pipe .step:hover{background:var(--paper-deep)}
+.pipe .step:last-child{border-right:0}
+.pipe .n{font-family:"Fraunces",Georgia,serif;font-weight:300;font-style:italic;font-size:54px;line-height:0.85;color:var(--accent);letter-spacing:-0.04em}
+.pipe .t{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;letter-spacing:-0.015em;color:var(--ink);margin-top:16px}
+.pipe .d{font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:10px}
+@media (max-width:900px){.pipe{grid-template-columns:1fr}.pipe .step{border-right:0;border-bottom:1px solid var(--rule-soft)}}
 
-/* Credentials strip */
-.creds{display:flex;flex-wrap:wrap;gap:24px;margin-top:32px;padding:24px 28px;background:var(--bg-card);border:1px solid var(--rule);border-radius:18px}
-.cred{display:flex;flex-direction:column;flex:1;min-width:200px}
-.cred .school{font-family:"Manrope",sans-serif;font-weight:600;color:var(--ink);font-size:15px}
-.cred .degree{font-size:13px;color:var(--ink-soft);margin-top:4px}
-.cred .when{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--accent);margin-top:6px;letter-spacing:0.08em}
+/* LANGUAGE MAP — full-bleed two-column with editorial dot leaders */
+.lmap{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:50px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.lmap .col{padding:48px;border-right:1px solid var(--rule-soft)}
+.lmap .col:last-child{border-right:0}
+.lmap h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;margin-bottom:30px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.lmap .row{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px dotted var(--rule-soft)}
+.lmap .row:last-child{border-bottom:0}
+.lmap .row .l-name{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:24px;letter-spacing:-0.015em;color:var(--ink);min-width:170px}
+.lmap .row .l-name em{font-style:italic;color:var(--accent)}
+.lmap .row .leaders{flex:1;border-bottom:1px dotted var(--rule);height:1px;align-self:end;margin-bottom:6px;opacity:0.5}
+.lmap .row .l-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.12em;color:var(--ink-mute);text-transform:uppercase;text-align:right}
+.lmap .row .l-tag b{color:var(--ink)}
+@media (max-width:880px){.lmap{grid-template-columns:1fr}.lmap .col{border-right:0;border-bottom:1px solid var(--rule)}}
 
-/* Final CTA */
-.final{padding:120px 0;text-align:center;background:radial-gradient(800px 400px at 50% 0%, rgba(52,211,153,0.10), transparent 60%)}
-.final h2{margin-bottom:16px}
-.final .lead{margin:0 auto 40px}
+/* WHAT I SELL — three columns, magazine */
+.sell{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.sell-col{padding:40px 28px;border-right:1px solid var(--rule-soft)}
+.sell-col:last-child{border-right:0}
+.sell-col .h{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+.sell-col h5{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:32px;letter-spacing:-0.02em;color:var(--ink);line-height:1.05;margin-bottom:18px}
+.sell-col h5 em{font-style:italic;color:var(--accent)}
+.sell-col ul{list-style:none}
+.sell-col li{padding:10px 0;font-size:14px;color:var(--ink-soft);line-height:1.6;border-bottom:1px dotted var(--rule-soft);position:relative;padding-left:24px}
+.sell-col li::before{content:"§";position:absolute;left:0;color:var(--accent);font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:18px;line-height:1}
+.sell-col li:last-child{border-bottom:0}
+@media (max-width:900px){.sell{grid-template-columns:1fr}.sell-col{border-right:0;border-bottom:1px solid var(--rule-soft)}}
+
+/* CREDENTIALS — paper-clipped tags */
+.creds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+.cred{padding:28px 24px;background:var(--paper-warm);border:1px solid var(--rule);position:relative;transition:transform .25s,background .25s}
+.cred:hover{transform:translateY(-3px);background:var(--paper)}
+.cred::before{content:"";position:absolute;top:-10px;right:24px;width:30px;height:14px;background:var(--accent);clip-path:polygon(0 0,100% 0,85% 100%,15% 100%);}
+.cred .school{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:18px;letter-spacing:-0.015em;color:var(--ink);line-height:1.25;margin-bottom:8px}
+.cred .degree{font-size:13px;color:var(--ink-soft);line-height:1.5;margin-bottom:14px}
+.cred .when{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.12em;color:var(--accent)}
+@media (max-width:900px){.creds{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.creds{grid-template-columns:1fr}}
+
+/* FINAL — letter-spaced editorial close */
+.final{padding:140px 0;text-align:center;background:var(--ink);color:var(--paper);border-bottom:0}
+.final h2{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(40px,6vw,84px);line-height:1.02;letter-spacing:-0.03em;color:var(--paper)}
+.final h2 em{font-style:italic;color:var(--accent-soft)}
+.final .lede{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:22px;color:rgba(245,241,230,0.7);max-width:600px;margin:36px auto 60px;line-height:1.45}
 .final .actions{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.final .cta-large{padding:18px 28px;border-radius:999px;background:var(--accent);color:#04210F;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px}
-.final .cta-secondary{padding:18px 28px;border-radius:999px;background:transparent;color:var(--ink);font-weight:600;font-size:16px;border:1px solid var(--rule)}
-.final .cta-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.final a.cta-large{padding:20px 32px;border-radius:0;background:var(--accent);color:var(--paper);font-weight:500;font-size:15px;letter-spacing:-0.01em;border:1px solid var(--accent);transition:background .2s}
+.final a.cta-large:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+.final a.cta-line{padding:20px 32px;background:transparent;color:var(--paper);font-weight:500;font-size:15px;letter-spacing:-0.01em;border:1px solid rgba(245,241,230,0.3);transition:border-color .2s,background .2s}
+.final a.cta-line:hover{border-color:var(--accent);color:var(--accent-soft)}
 
-/* Footer */
-footer{padding:40px 0 60px;font-size:13px;color:var(--ink-mute)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+/* FOOTER */
+footer{padding:40px 0 60px;font-size:12px;color:var(--ink-mute);font-family:"JetBrains Mono",monospace;letter-spacing:0.08em}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;text-transform:uppercase}
 footer a:hover{color:var(--accent)}
+
+/* Letter reveal — applied to hero title */
+.letter{display:inline-block;will-change:transform,opacity;opacity:0;transform:translateY(0.6em);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.letter.in{opacity:1;transform:translateY(0)}
+
+/* Reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion: reduce){
+  .letter,.reveal{opacity:1!important;transform:none!important}
+  .mast .meta .pulse::before{animation:none}
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<!-- ─────────── MASTHEAD ─────────── -->
+<header class="mast">
   <div class="wrap">
-    <a class="brand" href="/"><span class="dot"></span>Nikolas Stepan</a>
-    <div class="nav-links">
-      <a href="#ventures">Ventures</a>
-      <a href="#pipeline">Pipeline</a>
-      <a href="#markets">Markets</a>
+    <div class="title">Nikolas Stepan <em>· Sales</em></div>
+    <div class="meta">
+      <span class="pulse">Open to new mandates</span>
+      <span>Vol. VI · No. 01 · 2026</span>
+      <span>EN · FR · ES · CZ · SK</span>
     </div>
-    <a class="cta" href="mailto:nikostepan24@gmail.com">Start a conversation</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Sales · Business Development · Partnerships</div>
-    <h1>Founder-led <span class="accent">commercial work</span><br>across three ventures.</h1>
-    <p class="lead">
-      I sell what I build. Six years closing deals across cultural events, artisan products and made-to-order
-      manufacturing — in five native languages, across four Central-European markets. Numbers that hold up when
-      you walk into the back office.
-    </p>
-    <div class="hero-meta">
-      <span><span class="pulse"></span>Available · relocating to Budapest</span>
-      <span>EU citizen · no sponsorship</span>
-      <span>+36 30 667 0892</span>
-    </div>
-
-    <div class="kpis">
-      <div class="kpi">
-        <div class="num">3<span class="unit">ventures</span></div>
-        <div class="label">Co-founded</div>
-        <div class="sub">CADEMA (2019), GemArt (2022), Gemcraft (2025) — all still operating.</div>
-      </div>
-      <div class="kpi">
-        <div class="num">6<span class="unit">yrs</span></div>
-        <div class="label">Commercial track</div>
-        <div class="sub">From first cold pitch to long-term partner accounts. Continuous, not project-based.</div>
-      </div>
-      <div class="kpi">
-        <div class="num">5<span class="unit">native</span></div>
-        <div class="label">Working languages</div>
-        <div class="sub">EN · FR · ES · CZ · SK — close calls and contracts in any of them.</div>
-      </div>
-      <div class="kpi">
-        <div class="num">4<span class="unit">markets</span></div>
-        <div class="label">Active geographies</div>
-        <div class="sub">Czechia, Slovakia, France, Hungary — plus EU-wide artisan wholesale.</div>
-      </div>
-    </div>
+    <a class="cta" href="mailto:nikostepan24@gmail.com">Get in touch →</a>
   </div>
 </header>
 
-<section id="ventures">
+<!-- ─────────── COVER ─────────── -->
+<section class="hero">
   <div class="wrap">
-    <div class="eyebrow">What I&rsquo;ve sold</div>
-    <h2>Three ventures. Three sales motions.</h2>
-    <p class="lead">Different products, different buyers, different cycles — same operator across the table.</p>
+    <div class="vol">Annual Report <span>· 2026</span> &nbsp;|&nbsp; Founder-led commercial work &nbsp;|&nbsp; Distribution: by invitation</div>
 
-    <div class="ventures">
-      <article class="venture">
-        <span class="role">Co-Founder · 2019&ndash;present</span>
-        <div class="name">CADEMA</div>
-        <div class="dates">Wooden structures · B2B / B2C, made-to-order</div>
-        <p class="desc">
-          Bespoke wooden sheds, garden buildings and structures sold across Czechia and Slovakia. Long-cycle
-          consultative selling — site visits, custom quotes, 3D configurator demos, multi-week negotiations.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>6 yrs</b>operating</div>
-          <div class="stat"><b>2 markets</b>CZ &middot; SK</div>
-          <div class="stat"><b>3D-led</b>quoting</div>
-        </div>
-      </article>
+    <h1 class="cover-title" id="coverTitle">Six years.<br/><em>Three ventures.</em><br/>Five languages.</h1>
 
-      <article class="venture">
-        <span class="role">Co-Founder · 2022&ndash;present</span>
-        <div class="name">GemArt</div>
-        <div class="dates">Cultural-arts institute · sponsorships, tickets, partners</div>
-        <p class="desc">
-          Sponsorship sales, ticketed events, artisan partner agreements and institutional grants. Selling
-          intangible value &mdash; experience, audience, cultural cachet &mdash; to regional brands, municipalities and EU funds.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>156</b>events in 2025</div>
-          <div class="stat"><b>20k+</b>participants</div>
-          <div class="stat"><b>4 yrs</b>partner deals</div>
-        </div>
-      </article>
-
-      <article class="venture">
-        <span class="role">Founder · 2025&ndash;present</span>
-        <div class="name">Gemcraft</div>
-        <div class="dates">Artisan products · e-commerce + marketplaces</div>
-        <p class="desc">
-          Direct-to-consumer artisan products plus wholesale into European marketplaces (Upgates, BaseLinker
-          stack). Built the full pipeline: catalogue, pricing, marketplace integrations, paid + organic acquisition.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>D2C+B2B</b>dual motion</div>
-          <div class="stat"><b>EU-wide</b>marketplaces</div>
-          <div class="stat"><b>Owner</b>full P&amp;L</div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="pipeline">
-  <div class="wrap">
-    <div class="eyebrow">How I work the cycle</div>
-    <h2>Discovery to close, in five steps.</h2>
-    <p class="lead">The same operating motion across all three ventures &mdash; what changes is the buyer, not the discipline.</p>
-
-    <div class="pipeline">
-      <div class="step">
-        <div class="n">01</div><div class="t">Discovery</div>
-        <div class="d">Listen first. Map the real need vs. the stated brief. Decide whether there&rsquo;s a fit before pitching anything.</div>
-        <div class="arrow"></div>
-      </div>
-      <div class="step">
-        <div class="n">02</div><div class="t">Proposal</div>
-        <div class="d">Tight written proposal &mdash; scope, options, prices, timeline. Built for the buyer&rsquo;s decision committee, not for me.</div>
-        <div class="arrow"></div>
-      </div>
-      <div class="step">
-        <div class="n">03</div><div class="t">Negotiation</div>
-        <div class="d">Multilingual negotiation, terms and contracting. Comfortable holding price while finding shape concessions.</div>
-        <div class="arrow"></div>
-      </div>
-      <div class="step">
-        <div class="n">04</div><div class="t">Delivery</div>
-        <div class="d">I stay in the loop through delivery &mdash; the operator and the seller are the same person, so promises hold.</div>
-        <div class="arrow"></div>
-      </div>
-      <div class="step">
-        <div class="n">05</div><div class="t">Renewal</div>
-        <div class="d">Post-sale care, references, repeat business and partner referrals &mdash; the cheapest pipeline I have.</div>
+    <div class="cover-bottom">
+      <p class="cover-lede">
+        I sell what I build. Six years closing deals across cultural events, artisan products and
+        made-to-order manufacturing — in five native languages, across four Central-European markets.
+        <em>Numbers that hold up</em> when you walk into the back office.
+      </p>
+      <div class="cover-meta">
+        <div><b>Editor &amp; operator</b><br/>Nikolas Stepan</div>
+        <br/>
+        <div><b>Based</b><br/>Budapest, HU</div>
+        <br/>
+        <div><b>Reach</b><br/>+36 30 667 0892</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="markets">
+<!-- ─────────── TABLE OF CONTENTS ─────────── -->
+<section class="toc">
   <div class="wrap">
-    <div class="eyebrow">Languages map to markets</div>
-    <h2>I close in five languages.</h2>
-    <p class="lead">Not &ldquo;business level.&rdquo; Native. Each language unlocks a real geography I&rsquo;ve sold into.</p>
+    <div class="toc-label">Table of contents · this issue</div>
+    <div class="toc-list">
+      <a class="toc-item" href="#ticker"><span class="ch">CH. 01</span><span class="name">The numbers, <em>at a glance</em></span><span class="pg">p. 04</span></a>
+      <a class="toc-item" href="#ventures"><span class="ch">CH. 02</span><span class="name">Three ventures, <em>three motions</em></span><span class="pg">p. 06</span></a>
+      <a class="toc-item" href="#scale"><span class="ch">CH. 03</span><span class="name">The scale of work, <em>visualised</em></span><span class="pg">p. 12</span></a>
+      <a class="toc-item" href="#pipeline"><span class="ch">CH. 04</span><span class="name">Discovery to renewal, <em>five steps</em></span><span class="pg">p. 16</span></a>
+      <a class="toc-item" href="#markets"><span class="ch">CH. 05</span><span class="name">Languages → markets, <em>a map</em></span><span class="pg">p. 20</span></a>
+      <a class="toc-item" href="#what"><span class="ch">CH. 06</span><span class="name">What I sell, <em>day-to-day</em></span><span class="pg">p. 24</span></a>
+      <a class="toc-item" href="#bio"><span class="ch">CH. 07</span><span class="name">Credentials &amp; training</span><span class="pg">p. 28</span></a>
+    </div>
+  </div>
+</section>
 
-    <div class="markets">
+<!-- ─────────── CH. 01 — TICKER ─────────── -->
+<section id="ticker" class="ticker">
+  <div class="wrap">
+    <div class="eyebrow">Chapter 01 · The Headline</div>
+    <h2 class="serif" style="font-size:clamp(28px,3.5vw,44px);line-height:1.1;letter-spacing:-0.025em;color:var(--ink);font-weight:300;margin-bottom:60px;max-width:900px">
+      Six years selling, across <em style="font-style:italic;color:var(--accent)">three ventures</em>, in <em style="font-style:italic;color:var(--accent)">five languages</em>, into <em style="font-style:italic;color:var(--accent)">four markets</em>.
+    </h2>
+
+    <div class="ticker-grid">
+      <div class="tick">
+        <span class="n" data-count>3</span>
+        <div class="l">Ventures co-founded</div>
+        <div class="sub">CADEMA (2019) · GemArt (2022) · Gemcraft (2025). All still operating.</div>
+      </div>
+      <div class="tick">
+        <span class="n" data-count>6</span>
+        <div class="l">Years selling, continuously</div>
+        <div class="sub">First cold pitch at 16. No project gaps. No résumé padding.</div>
+      </div>
+      <div class="tick">
+        <span class="n" data-count>5</span>
+        <div class="l">Native working languages</div>
+        <div class="sub">EN · FR · ES · CZ · SK. Close cycles end in any of them.</div>
+      </div>
+      <div class="tick">
+        <span class="n" data-count>4</span>
+        <div class="l">Active markets · 1 US partnership</div>
+        <div class="sub">CZ · SK · FR · HU + EU wholesale + National Czech &amp; Slovak Museum, Iowa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── CH. 02 — VENTURES ─────────── -->
+<section id="ventures" class="chapter">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="num">Chapter 02 ─</div>
+      <h2 class="title">Three ventures.<br/><em>Three distinct motions.</em></h2>
+    </div>
+
+    <article class="venture">
+      <div class="v-head">
+        <div class="v-name">CADEMA</div>
+        <div class="v-role">Co-Founder · 2019 — present</div>
+        <div class="v-motion">B2B / B2C<br/>Made-to-order manufacturing<br/>Long-cycle consultative selling</div>
+      </div>
+      <div>
+        <div class="v-body">
+          <p>Bespoke wooden sheds, garden structures and buildings, sold across <em>Czechia and Slovakia</em>. Long-cycle consultative selling — site visits, custom quotes, 3D-configurator demos, multi-week negotiations with families and small businesses making a five-figure decision.</p>
+          <p>To compress quote cycles, I built the 3D configurator itself, a Czech-language voice agent that handles inbound qualification, and a parametric Blender pipeline that turns each quote into a render in minutes — <em>not days</em>. Founder mentality on cost, throughput and audit trails.</p>
+        </div>
+        <div class="v-stats">
+          <div class="v-stat"><b>6 yrs</b>operating</div>
+          <div class="v-stat"><b>2 mkts</b>CZ · SK</div>
+          <div class="v-stat"><b>3D</b>configurator built</div>
+          <div class="v-stat"><b>CZ</b>voice agent</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="venture">
+      <div class="v-head">
+        <div class="v-name">GemArt</div>
+        <div class="v-role">Co-Founder · 2022 — present</div>
+        <div class="v-motion">Sponsorships<br/>Ticketed events<br/>Partner agreements<br/>EU institutional funds</div>
+      </div>
+      <div>
+        <div class="v-body">
+          <p>A cultural-arts institute in the <em>Gemer region of Slovakia</em>. Sponsorship sales to regional brands, ticketed events, artisan partner agreements, institutional grants. Selling intangible value — <em>experience, audience, cultural cachet</em> — to brands, municipalities and EU funds.</p>
+          <p>2025 footprint: <em>156 events delivered, 20,000+ participants</em>. Multi-stakeholder, multi-language, multi-budget. The discipline is single source-of-truth briefs feeding budgets, marketing, day-of run sheets and post-event reports.</p>
+        </div>
+        <div class="v-stats">
+          <div class="v-stat"><b>156</b>events / 2025</div>
+          <div class="v-stat"><b>20k+</b>guests</div>
+          <div class="v-stat"><b>4 yrs</b>partner deals</div>
+          <div class="v-stat"><b>EU</b>grant cycles</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="venture">
+      <div class="v-head">
+        <div class="v-name">Gemcraft</div>
+        <div class="v-role">Founder · 2025 — present</div>
+        <div class="v-motion">D2C e-commerce<br/>EU marketplace wholesale<br/>US gallery placement</div>
+      </div>
+      <div>
+        <div class="v-body">
+          <p>Direct-to-consumer artisan products plus wholesale into European marketplaces — built end-to-end on the <em>Upgates &amp; BaseLinker stack</em>. Catalogue, pricing, marketplace integrations, paid + organic acquisition, fulfilment.</p>
+          <p>One placement worth flagging: a gallery cooperation with the <em>National Czech &amp; Slovak Museum</em> in Cedar Rapids, Iowa — a US footprint built through a single direct partnership conversation.</p>
+        </div>
+        <div class="v-stats">
+          <div class="v-stat"><b>D2C+B2B</b>dual motion</div>
+          <div class="v-stat"><b>EU-wide</b>marketplaces</div>
+          <div class="v-stat"><b>1 US</b>placement</div>
+          <div class="v-stat"><b>P&amp;L</b>full owner</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ─────────── CH. 03 — SCALE VISUAL ─────────── -->
+<section id="scale" class="chapter" style="background:var(--paper-warm)">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="num">Chapter 03 ─</div>
+      <h2 class="title">The scale of the work,<br/><em>visualised.</em></h2>
+    </div>
+
+    <p class="serif" style="font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:780px;font-weight:300;letter-spacing:-0.01em">
+      No specific revenue figures here — those belong on a call with you. What follows is a relative-scale view of how the commercial work has grown across the three ventures over six years.
+    </p>
+
+    <div class="scale-vis">
+      <svg viewBox="0 0 1200 280" preserveAspectRatio="none" style="width:100%;height:280px;display:block">
+        <!-- baseline -->
+        <line x1="0" y1="260" x2="1200" y2="260" stroke="#1F1B14" stroke-width="1.5"/>
+        <!-- year tick lines -->
+        <g font-family="JetBrains Mono" font-size="10" fill="#76695A" letter-spacing="0.1em">
+          <line x1="0"    y1="255" x2="0"    y2="270" stroke="#76695A" stroke-width="1"/><text x="6"    y="280">2019</text>
+          <line x1="200"  y1="255" x2="200"  y2="270" stroke="#76695A" stroke-width="1"/><text x="206"  y="280">2020</text>
+          <line x1="400"  y1="255" x2="400"  y2="270" stroke="#76695A" stroke-width="1"/><text x="406"  y="280">2022</text>
+          <line x1="600"  y1="255" x2="600"  y2="270" stroke="#76695A" stroke-width="1"/><text x="606"  y="280">2023</text>
+          <line x1="800"  y1="255" x2="800"  y2="270" stroke="#76695A" stroke-width="1"/><text x="806"  y="280">2024</text>
+          <line x1="1000" y1="255" x2="1000" y2="270" stroke="#76695A" stroke-width="1"/><text x="1006" y="280">2025</text>
+          <line x1="1190" y1="255" x2="1190" y2="270" stroke="#76695A" stroke-width="1"/><text x="1100" y="280">2026</text>
+        </g>
+
+        <!-- CADEMA area (long established) -->
+        <path id="lineCadema" d="M 0 240 L 200 220 L 400 200 L 600 175 L 800 150 L 1000 130 L 1200 115"
+              fill="none" stroke="#13110D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="2000" stroke-dashoffset="2000"/>
+        <text x="1200" y="105" font-family="Fraunces" font-size="14" font-style="italic" fill="#13110D" text-anchor="end">CADEMA · wood, made-to-order</text>
+
+        <!-- GemArt (joins 2022) -->
+        <path id="lineGemArt" d="M 400 250 L 600 220 L 800 175 L 1000 110 L 1200 60"
+              fill="none" stroke="#C13D26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="2000" stroke-dashoffset="2000"/>
+        <text x="1200" y="50" font-family="Fraunces" font-size="14" font-style="italic" fill="#C13D26" text-anchor="end">GemArt · events &amp; sponsorships</text>
+
+        <!-- Gemcraft (joins 2025) -->
+        <path id="lineGemcraft" d="M 1000 250 L 1100 220 L 1200 180"
+              fill="none" stroke="#7A2515" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="2000" stroke-dashoffset="2000"/>
+        <text x="1200" y="170" font-family="Fraunces" font-size="14" font-style="italic" fill="#7A2515" text-anchor="end">Gemcraft · D2C + marketplaces</text>
+      </svg>
+      <div class="caption">
+        <span><b>Y-axis</b> · relative commercial activity (proposals · pipeline · close cadence)</span>
+        <span><b>X-axis</b> · year, founding to today</span>
+        <span><b>Note</b> · indicative trend lines, not audited financials</span>
+      </div>
+    </div>
+
+    <p class="serif" style="font-size:19px;line-height:1.55;color:var(--ink-soft);max-width:780px;font-weight:300;margin-top:40px">
+      The pattern: <em style="color:var(--ink)">each new venture builds on the last</em>. CADEMA taught me long-cycle B2B. GemArt added multi-stakeholder sponsorship and institutional sales. Gemcraft layers in marketplace and D2C operations. Same operator. Different motions.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────── CH. 04 — PIPELINE ─────────── -->
+<section id="pipeline" class="chapter">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="num">Chapter 04 ─</div>
+      <h2 class="title">Discovery to renewal,<br/><em>in five steps.</em></h2>
+    </div>
+
+    <div class="pipe">
+      <div class="step"><div class="n">i</div><div class="t">Discovery</div><div class="d">Listen first. Map the real need vs. the stated brief. Decide whether there's a fit <em>before</em> pitching.</div></div>
+      <div class="step"><div class="n">ii</div><div class="t">Proposal</div><div class="d">Tight written proposal — scope, options, prices, timeline. Built for the buyer's decision committee, <em>not for me</em>.</div></div>
+      <div class="step"><div class="n">iii</div><div class="t">Negotiation</div><div class="d">Multilingual terms and contracting. Hold price; find shape concessions. Comfortable letting silence do work.</div></div>
+      <div class="step"><div class="n">iv</div><div class="t">Delivery</div><div class="d">I stay in the loop through delivery — operator and seller are the same person, so <em>promises hold</em>.</div></div>
+      <div class="step"><div class="n">v</div><div class="t">Renewal</div><div class="d">Post-sale care, references, repeat business, partner referrals — the <em>cheapest pipeline</em> there is.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── CH. 05 — LANGUAGE MAP ─────────── -->
+<section id="markets" class="chapter" style="background:var(--paper-warm)">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="num">Chapter 05 ─</div>
+      <h2 class="title">Five languages,<br/><em>five real markets.</em></h2>
+    </div>
+
+    <p class="serif" style="font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:780px;font-weight:300;letter-spacing:-0.01em">
+      Not "business level." <em style="color:var(--ink)">Native.</em> Each language unlocks a real geography I've sold into. The right voice on the call is the difference between a polite reply and a signed PO.
+    </p>
+
+    <div class="lmap">
       <div class="col">
-        <h3 style="margin-bottom:18px">Languages</h3>
-        <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">native · bilingual</span></div>
-        <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">native · bilingual</span></div>
-        <div class="lang-row"><span class="lang-name">Spanish</span><span class="lang-level">native · bilingual</span></div>
-        <div class="lang-row"><span class="lang-name">Czech</span><span class="lang-level">native · bilingual</span></div>
-        <div class="lang-row"><span class="lang-name">Slovak</span><span class="lang-level">native · bilingual</span></div>
+        <h4>The languages</h4>
+        <div class="row"><div class="l-name">English</div><div class="leaders"></div><div class="l-tag"><b>Native</b> / Bilingual</div></div>
+        <div class="row"><div class="l-name">French</div><div class="leaders"></div><div class="l-tag"><b>Native</b> / Bilingual</div></div>
+        <div class="row"><div class="l-name">Spanish</div><div class="leaders"></div><div class="l-tag"><b>Native</b> / Bilingual</div></div>
+        <div class="row"><div class="l-name">Czech</div><div class="leaders"></div><div class="l-tag"><b>Native</b> / Bilingual</div></div>
+        <div class="row"><div class="l-name">Slovak</div><div class="leaders"></div><div class="l-tag"><b>Native</b> / Bilingual</div></div>
       </div>
       <div class="col">
-        <h3 style="margin-bottom:18px">Markets unlocked</h3>
-        <div class="market-row"><span><b>Czechia</b> · domestic + diaspora</span><span><span class="lang-chip">CZ</span><span class="lang-chip">EN</span></span></div>
-        <div class="market-row"><span><b>Slovakia</b> · home base, 4+ years</span><span><span class="lang-chip">SK</span><span class="lang-chip">CZ</span></span></div>
-        <div class="market-row"><span><b>France</b> · grew up there, lived 18 yrs</span><span><span class="lang-chip">FR</span><span class="lang-chip">EN</span></span></div>
-        <div class="market-row"><span><b>Hungary</b> · relocating, ramping</span><span><span class="lang-chip">EN</span></span></div>
-        <div class="market-row"><span><b>EU wholesale</b> · marketplaces, partners</span><span><span class="lang-chip">EN</span><span class="lang-chip">ES</span><span class="lang-chip">FR</span></span></div>
+        <h4>The markets unlocked</h4>
+        <div class="row"><div class="l-name"><em>Czechia</em></div><div class="leaders"></div><div class="l-tag">CZ · EN</div></div>
+        <div class="row"><div class="l-name"><em>Slovakia</em></div><div class="leaders"></div><div class="l-tag">SK · CZ</div></div>
+        <div class="row"><div class="l-name"><em>France</em></div><div class="leaders"></div><div class="l-tag">FR · EN</div></div>
+        <div class="row"><div class="l-name"><em>Hungary</em></div><div class="leaders"></div><div class="l-tag">EN <span style="color:var(--ink-mute)">· HU learning</span></div></div>
+        <div class="row"><div class="l-name"><em>EU wholesale</em></div><div class="leaders"></div><div class="l-tag">EN · ES · FR</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ─────────── CH. 06 — WHAT I SELL ─────────── -->
+<section id="what" class="chapter">
   <div class="wrap">
-    <div class="eyebrow">What I sell day-to-day</div>
-    <h2>Three motions. Same discipline.</h2>
-    <div class="sellgrid">
-      <div class="sell">
-        <div class="h"><span class="blip"></span>B2B partnerships</div>
+    <div class="chap-head">
+      <div class="num">Chapter 06 ─</div>
+      <h2 class="title">What I sell,<br/><em>day-to-day.</em></h2>
+    </div>
+
+    <div class="sell">
+      <div class="sell-col">
+        <div class="h">Section A</div>
+        <h5><em>B2B</em> partnerships</h5>
         <ul>
           <li>Sponsorships &amp; institutional deals (cultural sector)</li>
-          <li>Wholesale agreements (artisan products)</li>
-          <li>Long-cycle bespoke quotes (CADEMA)</li>
-          <li>Multi-stakeholder negotiations</li>
+          <li>Wholesale agreements (artisan products, marketplaces)</li>
+          <li>Long-cycle bespoke quotes (CADEMA, B2B made-to-order)</li>
+          <li>Multi-stakeholder negotiations &amp; contracting</li>
         </ul>
       </div>
-      <div class="sell">
-        <div class="h"><span class="blip"></span>B2C / direct</div>
+      <div class="sell-col">
+        <div class="h">Section B</div>
+        <h5><em>B2C</em> &amp; direct</h5>
         <ul>
-          <li>Ticketed events &amp; programmes</li>
-          <li>D2C e-commerce funnels</li>
-          <li>Made-to-order consultative selling</li>
-          <li>After-sales care in 5 languages</li>
+          <li>Ticketed events &amp; cultural programmes</li>
+          <li>Direct-to-consumer e-commerce funnels</li>
+          <li>Made-to-order consultative selling (site visits, quotes)</li>
+          <li>After-sales care &amp; references in 5 languages</li>
         </ul>
       </div>
-      <div class="sell">
-        <div class="h"><span class="blip"></span>Channels &amp; ops</div>
+      <div class="sell-col">
+        <div class="h">Section C</div>
+        <h5><em>Channels</em> &amp; ops</h5>
         <ul>
-          <li>EU marketplaces (Upgates, BaseLinker)</li>
-          <li>Pipeline trackers, follow-up cadence</li>
-          <li>Quotes, contracts, invoicing</li>
-          <li>CRM hygiene &amp; reporting</li>
+          <li>EU marketplaces (Upgates, BaseLinker integrations)</li>
+          <li>Pipeline trackers, follow-up cadences, CRM hygiene</li>
+          <li>Quotes, contracts, invoicing, reporting</li>
+          <li>3D configurator &amp; voice agent (CADEMA, built by me)</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ─────────── CH. 07 — CREDENTIALS ─────────── -->
+<section id="bio" class="chapter">
   <div class="wrap">
-    <div class="eyebrow">Credentials</div>
-    <h2>Education &amp; training.</h2>
+    <div class="chap-head">
+      <div class="num">Chapter 07 ─</div>
+      <h2 class="title">Credentials,<br/><em>education &amp; training.</em></h2>
+    </div>
 
     <div class="creds">
       <div class="cred">
@@ -412,175 +556,132 @@ footer a:hover{color:var(--accent)}
       </div>
       <div class="cred">
         <div class="school">Lycée International Jules Guesde</div>
-        <div class="degree">Baccalauréat (General) + Bachillerato (ES Lang &amp; Lit)</div>
+        <div class="degree">Baccalauréat + Bachillerato (Spanish Lang &amp; Lit)</div>
         <div class="when">2018 — 2021</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ─────────── FINAL CTA ─────────── -->
 <section class="final">
   <div class="wrap">
-    <div class="eyebrow">Let&rsquo;s talk numbers</div>
-    <h2>Ready to talk territories,<br>pipelines, or a specific deal?</h2>
-    <p class="lead">Reply in any of five languages. I&rsquo;ll get back within the day.</p>
+    <div class="eyebrow" style="color:var(--accent-soft)">Closing remarks</div>
+    <h2>Ready to talk territories,<br/><em>pipelines, or a specific deal?</em></h2>
+    <p class="lede">Five languages. Same-day reply. Bring the brief, I'll bring the numbers.</p>
     <div class="actions">
-      <a class="cta-large" href="mailto:nikostepan24@gmail.com">Email &rarr;</a>
-      <a class="cta-secondary" href="https://www.linkedin.com/in/nikolas-stepan-545417221" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="cta-secondary" href="tel:+36306670892">+36 30 667 0892</a>
+      <a class="cta-large" href="mailto:nikostepan24@gmail.com">Email Nikolas →</a>
+      <a class="cta-line" href="https://www.linkedin.com/in/nikolas-stepan-545417221" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="cta-line" href="tel:+36306670892">+36 30 667 0892</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© <span id="y"></span> Nikolas Stepan &middot; <a href="https://nikolasstepan.com">nikolasstepan.com</a></div>
+    <div>© <span id="y"></span> Nikolas Stepan · Sales Portfolio · Annual Report 2026</div>
     <div>
-      <a href="https://events.nikolasstepan.com">Events portfolio &rarr;</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://web.nikolasstepan.com">Web &amp; AI portfolio &rarr;</a>
+      <a href="https://nikolasstepan.com">Main →</a> &nbsp;·&nbsp;
+      <a href="https://events.nikolasstepan.com">Events →</a> &nbsp;·&nbsp;
+      <a href="https://web.nikolasstepan.com">Web &amp; AI →</a>
     </div>
   </div>
 </footer>
 
-<!-- ────────────────  WOW: ambient particle field + animated counters + scroll reveals  ──────────────── -->
-<canvas id="bg-fx" aria-hidden="true"
-  style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.55;mix-blend-mode:screen"></canvas>
-<style>
-  body > nav, body > header, body > section, body > footer { position: relative; z-index: 1; }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-  .kpi .num.counting { color: var(--accent); text-shadow: 0 0 24px var(--halo); transition: color 1s, text-shadow 1s; }
-  .kpi { transition: transform .4s cubic-bezier(.22,1,.36,1), border-color .4s, box-shadow .4s; }
-  .kpi:hover { box-shadow: 0 16px 40px -16px rgba(52,211,153,0.35), inset 0 0 0 1px rgba(52,211,153,0.4); }
-  .venture { transition: transform .4s cubic-bezier(.22,1,.36,1), border-color .4s, box-shadow .4s; }
-  .venture:hover { box-shadow: 0 20px 50px -18px rgba(52,211,153,0.25); border-color: rgba(52,211,153,0.4); }
-  .brand .dot { animation: pulse 2.4s ease-in-out infinite; }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(52,211,153,0.18); }
-    50%      { box-shadow: 0 0 0 9px rgba(52,211,153,0.04); }
-  }
-  .step:hover { background: var(--bg-elev); }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    #bg-fx { display: none; }
-    .brand .dot { animation: none; }
-  }
-</style>
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
 
-/* ---- 1. Reveal on scroll ---- */
+/* ---- 1. Letter-by-letter reveal on cover title ---- */
 (function(){
-  const els = document.querySelectorAll("section, .kpi, .venture, .step, .quote, .sell, .cred, .lang-row, .market-row");
-  els.forEach(el => el.classList.add("reveal"));
-  const io = new IntersectionObserver(es => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-  els.forEach(el => io.observe(el));
+  const t = document.getElementById('coverTitle');
+  if (!t || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const html = t.innerHTML;
+  // Wrap each visible character in a span.letter, preserve <em>/<br>
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const walk = (node, out) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const chars = node.textContent.split('');
+      const frag = document.createDocumentFragment();
+      chars.forEach(c => {
+        const s = document.createElement('span');
+        s.className = 'letter';
+        s.textContent = c;
+        frag.appendChild(s);
+      });
+      out.appendChild(frag);
+    } else {
+      const clone = node.cloneNode(false);
+      out.appendChild(clone);
+      node.childNodes.forEach(n => walk(n, clone));
+    }
+  };
+  const newRoot = document.createElement('div');
+  tmp.childNodes.forEach(n => walk(n, newRoot));
+  t.innerHTML = newRoot.innerHTML;
+  const letters = t.querySelectorAll('.letter');
+  letters.forEach((l, i) => {
+    setTimeout(() => l.classList.add('in'), 200 + i * 28);
+  });
 })();
 
-/* ---- 2. Animated KPI counters ---- */
+/* ---- 2. Counter animation on the big numbers ---- */
 (function(){
-  function animate(el, target, suffix, durationMs) {
-    const start = performance.now();
-    const initial = 0;
-    el.classList.add("counting");
-    function tick(now) {
-      const t = Math.min(1, (now - start) / durationMs);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const v = Math.round(initial + (target - initial) * eased);
-      el.firstChild.nodeValue = v + suffix;
-      if (t < 1) requestAnimationFrame(tick);
-      else setTimeout(() => el.classList.remove("counting"), 600);
-    }
-    requestAnimationFrame(tick);
-  }
-  const nums = document.querySelectorAll(".kpi .num");
+  const nums = document.querySelectorAll('[data-count]');
   const io = new IntersectionObserver(es => {
     es.forEach(e => {
       if (!e.isIntersecting) return;
       const el = e.target;
       io.unobserve(el);
-      const raw = el.firstChild.nodeValue.trim();        // "3", "6", "5", "4" etc.
-      const m = raw.match(/(\d+)/);
-      if (!m) return;
-      const target = parseInt(m[1], 10);
-      const suffix = raw.slice(m.index + m[1].length);   // "+", "" etc
-      el.firstChild.nodeValue = "0" + suffix;
-      animate(el, target, suffix, 1400);
+      const target = parseInt(el.textContent, 10);
+      if (isNaN(target)) return;
+      const start = performance.now();
+      const duration = 1400;
+      el.textContent = '0';
+      (function tick(now){
+        const t = Math.min(1, (now - start) / duration);
+        const v = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        el.textContent = v;
+        if (t < 1) requestAnimationFrame(tick);
+      })(start);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
   nums.forEach(n => io.observe(n));
 })();
 
-/* ---- 3. Ambient particle field (emerald drift) ---- */
+/* ---- 3. Reveal on scroll ---- */
 (function(){
-  const canvas = document.getElementById("bg-fx");
-  if (!canvas || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const ctx = canvas.getContext("2d", { alpha: true });
-  let W, H, dpr, parts = [];
-  function resize(){
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = canvas.width = innerWidth * dpr;
-    H = canvas.height = innerHeight * dpr;
-    canvas.style.width = innerWidth + "px";
-    canvas.style.height = innerHeight + "px";
-  }
-  function seed(){
-    const n = Math.min(90, Math.floor((innerWidth * innerHeight) / 18000));
-    parts = Array.from({length:n}, () => ({
-      x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-0.5)*0.22*dpr,
-      vy: (Math.random()-0.5)*0.22*dpr,
-      r: (Math.random()*1.7+0.4)*dpr,
-      a: Math.random()*0.5+0.18,
-    }));
-  }
-  function frame(){
-    ctx.clearRect(0,0,W,H);
-    // soft connecting lines for nearby particles
-    for (let i=0;i<parts.length;i++){
-      const p = parts[i];
-      p.x += p.vx; p.y += p.vy;
-      if (p.x<0||p.x>W) p.vx*=-1;
-      if (p.y<0||p.y>H) p.vy*=-1;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle = `rgba(52,211,153,${p.a})`;
-      ctx.fill();
-      for (let j=i+1;j<parts.length;j++){
-        const q = parts[j];
-        const dx=p.x-q.x, dy=p.y-q.y, d2=dx*dx+dy*dy;
-        const maxD = 140*dpr;
-        if (d2 < maxD*maxD){
-          const o = 1 - Math.sqrt(d2)/maxD;
-          ctx.strokeStyle = `rgba(52,211,153,${o*0.10})`;
-          ctx.lineWidth = 0.6*dpr;
-          ctx.beginPath();
-          ctx.moveTo(p.x,p.y);
-          ctx.lineTo(q.x,q.y);
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(frame);
-  }
-  resize(); seed(); frame();
-  addEventListener("resize", () => { resize(); seed(); });
+  const els = document.querySelectorAll('section, .venture, .toc-item, .tick, .step, .col, .sell-col, .cred, .chap-head');
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  els.forEach(el => io.observe(el));
 })();
 
-/* ---- 4. Tilt effect on KPI cards (mouse) ---- */
+/* ---- 4. Animate scale-visual SVG paths (drawn-on effect) ---- */
 (function(){
-  document.querySelectorAll(".kpi, .venture").forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width - 0.5) * 6;
-      const y = ((e.clientY - r.top)  / r.height - 0.5) * 6;
-      card.style.transform = `perspective(800px) rotateX(${-y}deg) rotateY(${x}deg) translateY(-2px)`;
-    });
-    card.addEventListener("mouseleave", () => { card.style.transform = ""; });
+  const svg = document.querySelector('.scale-vis svg');
+  if (!svg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const paths = svg.querySelectorAll('path');
+  paths.forEach(p => {
+    const len = p.getTotalLength();
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.style.transition = 'stroke-dashoffset 2.6s cubic-bezier(.22,1,.36,1)';
   });
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      paths.forEach((p, i) => {
+        setTimeout(() => { p.style.strokeDashoffset = '0'; }, 200 + i * 350);
+      });
+    });
+  }, { threshold: 0.3 });
+  io.observe(svg);
 })();
 </script>
 </body>
