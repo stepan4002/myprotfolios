@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nikolas Stepan — Event Management & Hospitality</title>
+<meta name="description" content="Multilingual event manager and hospitality operator. 156 events and 20,000+ participants in 2025 across Slovakia, Czechia and Hungary." />
+<meta property="og:title" content="Nikolas Stepan — Event Management & Hospitality" />
+<meta property="og:description" content="156 events. 20,000+ participants. Four working languages. Cultural, gastronomic and luxury-maison production across Central Europe." />
+<meta property="og:type" content="profile" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EFE6;
+    --paper-warm:#EFE9DC;
+    --paper-deep:#EAE3D2;
+    --ink:#14110D;
+    --ink-soft:#3A332A;
+    --ink-mute:#6F665A;
+    --rule:#D9D1C0;
+    --rule-soft:#E5DDC9;
+    --accent:#B14A2F;
+    --accent-soft:#E5A78F;
+    --accent-deep:#7A2E1B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);}
+  body{
+    font-family:"Geist","Söhne",system-ui,sans-serif;
+    font-weight:400;
+    font-size:16px;
+    line-height:1.55;
+    letter-spacing:-0.005em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    background-image:
+      radial-gradient(rgba(0,0,0,0.018) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.012) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+  }
+  .page{
+    max-width:1100px;
+    margin:0 auto;
+    padding:88px 64px 120px;
+  }
+  a{color:inherit;}
+
+  /* ============ HERO ============ */
+  .hero{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:end;
+    gap:48px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:48px;
+  }
+  .name{
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    font-size:clamp(56px, 9.5vw, 132px);
+    line-height:0.92;
+    letter-spacing:-0.035em;
+    color:var(--ink);
+  }
+  .name .em{ font-style:italic; font-weight:300; }
+  .meta{
+    text-align:right;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;
+    line-height:1.7;
+    color:var(--ink-mute);
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+  }
+  .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+  .meta a:hover{border-bottom-color:var(--accent);}
+  .meta .label{color:var(--ink-mute);}
+  .meta .val{color:var(--ink);text-transform:none;letter-spacing:normal;font-size:13px;}
+
+  .lede{
+    margin-top:48px;
+    max-width:820px;
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-size:clamp(22px, 2.4vw, 30px);
+    line-height:1.36;
+    letter-spacing:-0.018em;
+    color:var(--ink-soft);
+  }
+  .lede em{font-style:italic;color:var(--ink);}
+
+  /* ============ SECTION HEADERS ============ */
+  .section{ margin-top:96px; }
+  .section-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:32px;
+  }
+  .section-label::before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:var(--accent);
+  }
+  .section-title{
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-size:clamp(34px, 4.4vw, 56px);
+    line-height:1.05;
+    letter-spacing:-0.022em;
+    margin-bottom:24px;
+    color:var(--ink);
+  }
+  .section-title em{font-style:italic;}
+  .section-intro{
+    max-width:760px;
+    font-size:17px;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+
+  /* ============ STAT STRIP ============ */
+  .stats{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:0;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .stat{
+    padding:28px 24px 28px 0;
+    border-right:1px solid var(--rule-soft);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .v{
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-size:48px;
+    line-height:1;
+    letter-spacing:-0.03em;
+  }
+  .stat .v em{font-style:italic;color:var(--accent);}
+  .stat .l{
+    margin-top:10px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+
+  /* ============ POSITIONS / ROLES ============ */
+  .roles{
+    margin-top:48px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:48px 64px;
+  }
+  .role{
+    padding-top:28px;
+    border-top:1px solid var(--rule);
+  }
+  .role .tag{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .role h3{
+    font-family:"Fraunces", serif;
+    font-weight:400;
+    font-size:24px;
+    line-height:1.2;
+    letter-spacing:-0.012em;
+    margin-bottom:10px;
+  }
+  .role h3 em{font-style:italic;color:var(--ink-soft);}
+  .role .where{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    color:var(--ink-mute);
+    margin-bottom:14px;
+    letter-spacing:0.02em;
+  }
+  .role p{
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  /* ============ CASE STUDIES ============ */
+  .case{
+    margin-top:64px;
+    padding-top:48px;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    gap:48px;
+  }
+  .case .head{
+    position:sticky;
+    top:32px;
+    align-self:start;
+  }
+  .case .num{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    color:var(--accent);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .case .title{
+    font-family:"Fraunces", serif;
+    font-weight:400;
+    font-size:30px;
+    line-height:1.1;
+    letter-spacing:-0.018em;
+    margin-bottom:14px;
+  }
+  .case .title em{font-style:italic;}
+  .case .where{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    color:var(--ink-mute);
+    line-height:1.7;
+    letter-spacing:0.02em;
+  }
+  .case .body p{
+    color:var(--ink-soft);
+    font-size:15.5px;
+    line-height:1.7;
+    margin-bottom:18px;
+  }
+  .case .body p strong{color:var(--ink);font-weight:500;}
+  .case ul{
+    list-style:none;
+    margin:14px 0 20px 0;
+    padding:0;
+  }
+  .case ul li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:8px;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+  }
+  .case ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:11px;
+    width:8px; height:1px;
+    background:var(--accent);
+  }
+  .case .meta-row{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px dashed var(--rule);
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .case .meta-row span strong{color:var(--ink);font-weight:500;}
+
+  /* ============ EVENT CATEGORY TABLE ============ */
+  .ev-table{
+    margin-top:40px;
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  .ev-table thead th{
+    text-align:left;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    padding:14px 16px 14px 0;
+    border-bottom:1px solid var(--ink);
+    font-weight:500;
+  }
+  .ev-table tbody td{
+    padding:16px 16px 16px 0;
+    border-bottom:1px solid var(--rule-soft);
+    color:var(--ink-soft);
+    vertical-align:top;
+  }
+  .ev-table tbody td:first-child{
+    color:var(--ink);
+    font-family:"Fraunces", serif;
+    font-size:17px;
+    line-height:1.3;
+  }
+  .ev-table tbody td:first-child em{font-style:italic;}
+
+  /* ============ SKILLS PANEL ============ */
+  .skills{
+    margin-top:48px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:32px;
+  }
+  .skill h4{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+  .skill ul{list-style:none;padding:0;margin:0;}
+  .skill li{
+    font-size:14px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    padding:5px 0;
+  }
+
+  /* ============ LANGUAGES ============ */
+  .lang-row{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:24px;
+  }
+  .lang{
+    border-top:2px solid var(--ink);
+    padding-top:14px;
+  }
+  .lang .l{
+    font-family:"Fraunces", serif;
+    font-size:26px;
+    line-height:1;
+    letter-spacing:-0.012em;
+    margin-bottom:8px;
+  }
+  .lang .l em{font-style:italic;}
+  .lang .lvl{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .lang .lvl strong{color:var(--accent);font-weight:500;}
+
+  /* ============ JOB FIT BAND ============ */
+  .fit{
+    margin-top:96px;
+    padding:48px;
+    background:var(--paper-deep);
+    border:1px solid var(--rule);
+    border-radius:2px;
+  }
+  .fit .label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .fit h2{
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-size:32px;
+    line-height:1.15;
+    letter-spacing:-0.018em;
+    margin-bottom:16px;
+  }
+  .fit h2 em{font-style:italic;}
+  .fit p{
+    color:var(--ink-soft);
+    font-size:15.5px;
+    line-height:1.7;
+    max-width:760px;
+    margin-bottom:14px;
+  }
+  .fit-grid{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px 48px;
+  }
+  .fit-grid .row{
+    padding-top:14px;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap:16px;
+    font-size:14.5px;
+  }
+  .fit-grid .row .k{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    padding-top:3px;
+  }
+  .fit-grid .row .v{color:var(--ink-soft);line-height:1.6;}
+  .fit-grid .row .v strong{color:var(--ink);font-weight:500;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    margin-top:120px;
+    padding-top:48px;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:48px;
+    align-items:end;
+  }
+  footer .sign{
+    font-family:"Fraunces", serif;
+    font-weight:300;
+    font-size:42px;
+    line-height:1;
+    letter-spacing:-0.022em;
+  }
+  footer .sign em{font-style:italic;}
+  footer .contact{
+    text-align:right;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;
+    line-height:1.8;
+    color:var(--ink-mute);
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+  }
+  footer .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .contact a:hover{border-bottom-color:var(--accent);}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 920px){
+    .page{padding:48px 28px 80px;}
+    .hero{grid-template-columns:1fr;gap:24px;}
+    .meta{text-align:left;}
+    .stats{grid-template-columns:repeat(2, 1fr);}
+    .roles{grid-template-columns:1fr;}
+    .case{grid-template-columns:1fr;gap:24px;}
+    .case .head{position:static;}
+    .skills{grid-template-columns:repeat(2,1fr);}
+    .lang-row{grid-template-columns:repeat(2,1fr);}
+    .fit{padding:32px 24px;}
+    .fit-grid{grid-template-columns:1fr;}
+    .fit-grid .row{grid-template-columns:1fr;}
+    footer{grid-template-columns:1fr;}
+    footer .contact{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- =================== HERO =================== -->
+  <header class="hero">
+    <h1 class="name">Nikolas<br/><span class="em">Stepan.</span></h1>
+    <div class="meta">
+      <div class="label">Discipline</div>
+      <div class="val">Event Management &middot; Hospitality</div>
+      <div class="label" style="margin-top:14px;">Based</div>
+      <div class="val">Rožňava, SK &middot; Prague, CZ &middot; remote</div>
+      <div class="label" style="margin-top:14px;">Languages</div>
+      <div class="val">FR &middot; ES &middot; EN &middot; CZ &middot; SK</div>
+      <div class="label" style="margin-top:14px;">Contact</div>
+      <div class="val"><a href="mailto:nikostepan24@gmail.com">nikostepan24@gmail.com</a></div>
+      <div class="val"><a href="https://linkedin.com/in/nikolas-stepan-545417221">linkedin / nikolas-stepan</a></div>
+    </div>
+  </header>
+
+  <p class="lede">
+    Multilingual event manager and hospitality operator. I run cultural, gastronomic and luxury-maison events end-to-end — <em>156 events and 20,000+ participants in 2025</em>, four working languages, from <em>50-person curated wine pairings</em> on a heritage estate, to a <em>500-seat regional gastro festival</em> on a main public square, to a <em>multi-city couture tour</em> through Prague, Budapest and Rožňava.
+  </p>
+
+  <!-- =================== STATS =================== -->
+  <section class="section" style="margin-top:64px;">
+    <div class="stats">
+      <div class="stat"><div class="v"><em>156</em></div><div class="l">Events in 2025</div></div>
+      <div class="stat"><div class="v">20,000<em>+</em></div><div class="l">Participants &amp; guests</div></div>
+      <div class="stat"><div class="v">5</div><div class="l">Languages working</div></div>
+      <div class="stat"><div class="v"><em>3</em></div><div class="l">Countries · SK · CZ · HU</div></div>
+    </div>
+  </section>
+
+  <!-- =================== ROLES =================== -->
+  <section class="section">
+    <div class="section-label">Roles</div>
+    <h2 class="section-title">Five operating <em>positions.</em></h2>
+    <p class="section-intro">
+      Event management is one discipline practised across five organisations — a cultural-creative association, a manufacturing &amp; workshops company, a 14th-century castle under reconstruction, a luxury maison, and a regional hotel operation. <strong>2025 footprint: 156 events, 20,000+ participants.</strong> Each role is end-to-end: programming, venues, suppliers, budget, marketing, day-of, settlement.
+    </p>
+
+    <div class="roles">
+      <div class="role">
+        <div class="tag">Co-founder · main organiser</div>
+        <h3>GemMark <em>— GemArt's operational &amp; marketing arm</em></h3>
+        <div class="where">Štítnik · Betliar · Rožňava · Slovakia</div>
+        <p>Operational and marketing arm of <strong>GemArt</strong>, a cultural-creative association in Slovakia's Gemer region. I run the full event lifecycle — programming, venue contracts, supplier panels, budget, multilingual marketing, day-of production, post-event reporting — across eight event categories. <strong>2025 delivered 156 events and 20,000+ participants.</strong></p>
+      </div>
+
+      <div class="role">
+        <div class="tag">Director · manager</div>
+        <h3>Gemcraft <em>— glass &amp; ceramic manufacture · workshops</em></h3>
+        <div class="where">Štítnik · Slovakia</div>
+        <p>Director of the manufacturing and crafts company that supplies the events programme: hand-blown glass, ceramics, silvering, painting. I manage the workshop team, inventory, kiln cadence, and the B2B/B2C workshop programme — half-day team-buildings for 8–20 people, drop-ins, school programmes, multi-day intensives.</p>
+      </div>
+
+      <div class="role">
+        <div class="tag">Co-steward · reconstruction</div>
+        <h3>Vodný hrad Štítnik <em>— 14th-century water castle</em></h3>
+        <div class="where">Štítnik (14 km from Rožňava) · Slovakia</div>
+        <p>Co-steward of a 1432 defensive water castle under active reconstruction, operated today as a cultural and entertainment venue. Co-responsible for venue programming, the heritage-tour experience (anchored by a Flutter SK/EN/HU companion app), site logistics and visitor flow.</p>
+      </div>
+
+      <div class="role">
+        <div class="tag">Co-curator · co-organiser</div>
+        <h3>Csetneki Maison <em>— multi-city luxury runway tour</em></h3>
+        <div class="where">Štítnik · Prague · Budapest · Rožňava · Vienna (2027)</div>
+        <p>An original luxury-maison project anchored on Štítnik lace, brought together with four artists across textile, painting and ceramic disciplines. I co-curate the collection, sign venues across Prague, Budapest and Rožňava, run artist contracts &amp; logistics, brief the press, and operate front-of-house.</p>
+      </div>
+
+      <div class="role">
+        <div class="tag">Operations · multi-month placement</div>
+        <h3>Apartmány Nad Kostolom <em>— hospitality operations</em></h3>
+        <div class="where">Slovakia · multi-month placement</div>
+        <p>Several months in front-of-house and operations at <a href="https://www.nadkostolom.sk/" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--rule);">Apartmány Nad Kostolom</a> — reception flow, guest relations across SK/EN/HU/DE walk-ins, F&amp;B service coordination with the on-site lobby bar, supplier and housekeeping liaison, daily settlement. The hands-on hospitality counterpart to the cultural-event production work.</p>
+      </div>
+
+      <div class="role">
+        <div class="tag">Programme partner</div>
+        <h3>Klaštor Cultural &amp; Creative Centre <em>— Rožňava</em></h3>
+        <div class="where">Rožňava · Slovakia</div>
+        <p>Recurring venue partner for exhibitions, vernissages and the <em>Osudy umenia</em> art-film festival. Coordination with house staff for tech, ticketing, catering and bilingual signage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== EVENT CATEGORIES =================== -->
+  <section class="section">
+    <div class="section-label">Annual programme</div>
+    <h2 class="section-title">Eight event <em>categories.</em></h2>
+    <p class="section-intro">
+      A 2026 snapshot, built on a 2025 delivery of <strong>156 events and 20,000+ participants</strong>. Cadence is multi-weekly through summer and monthly off-season. Each category has its own permit, supplier and capacity profile — but the operating discipline is the same: a single source-of-truth brief feeds budget, marketing, day-of run-sheet and post-event report.
+    </p>
+    <table class="ev-table">
+      <thead><tr>
+        <th>Category</th>
+        <th>Format</th>
+        <th>Capacity / session</th>
+        <th>Count 2026</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><em>Csetneki</em> — luxury maison runway tour</td><td>Multi-city couture runway · invite-list FOH · press</td><td>200–500</td><td>3 stops + 2027 series</td></tr>
+        <tr><td>Festivals &amp; gastro</td><td>Public-square festival · wine festival · Fašiangy folklore</td><td>50–500+</td><td>5+</td></tr>
+        <tr><td>Wine &amp; gastronomy</td><td>Curated 6–8 pour + cheese pairing · multi-course supper</td><td>40–90</td><td>recurring</td></tr>
+        <tr><td>Exhibitions &amp; vernissages</td><td>Group shows · student openings · catalogue · live music</td><td>60–200</td><td>6+</td></tr>
+        <tr><td><em>CESTA MODERNY</em> — painting cycle</td><td>Multi-month weekend course · visiting artist · final vernissage</td><td>15–30</td><td>8+</td></tr>
+        <tr><td>Workshops — ceramics, glass, silvering</td><td>B2B team-building (half-day) · B2C drop-in (3 hr)</td><td>8–20</td><td>13+</td></tr>
+        <tr><td>Summer Academy</td><td>Three parallel youth schools (5-week footprint)</td><td>80–150 youth</td><td>3 tracks</td></tr>
+        <tr><td><em>Osudy umenia</em> — art-film festival</td><td>Multi-site rolling festival · screenings + Q&amp;A</td><td>250–600 across sites</td><td>1 weekend</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== CASE 01 — CSETNEKI =================== -->
+  <section class="case section" id="csetneki">
+    <div class="head">
+      <div class="num">Case · 01</div>
+      <div class="title">Csetneki — luxury maison, <em>three-city tour</em></div>
+      <div class="where">
+        Štítnik · Prague · Budapest · Rožňava<br/>
+        Multi-city tour · 2025–2027<br/>
+        Role · co-curator &amp; co-organiser
+      </div>
+    </div>
+    <div class="body">
+      <p>An eleven-look luxury maison built on <strong>Štítnik lace</strong> — a heritage craft developed by the Szontágh sisters from 1905. Brought together with four artists: textile designer Vlasta Žáková, painters Alexandra Atlasová and Martina Štěpán, and Prof. MUDr. Svatopluk Adámek (UMPRUM Prague). The looks combine historical lace redrawn through digital + machine embroidery, upcycled textiles, ceramic ornaments from the Gemcraft workshop, and a finale on the <em>"fragile inner armour of the feminine."</em></p>
+
+      <p><strong>What I delivered, end-to-end:</strong></p>
+      <ul>
+        <li>Curatorial brief — 11-look concept order, designer medallions, runway script.</li>
+        <li>Venues — historic Prague palace setting; indoor production permits in Štítnik / Rožňava; fire-safety sign-off for runway lighting.</li>
+        <li>Artist coordination — contracts, accommodation, transport, riders, payouts.</li>
+        <li>Supply chain — ceramics from Gemcraft workshop, embroidery from Vlasta's atelier, paintings sourced; one-source-of-truth inventory list per look.</li>
+        <li>Press — regional + Prague + Budapest media; one-page release + image bank; embargoes managed per stop.</li>
+        <li>Front-of-house — guest list, RSVP, seat allocation, walk-on cards, photographer brief, hospitality flow.</li>
+        <li>Marketing pack — SK / CZ / EN / HU posters, social cards, runway-order PDF, designer medallions, press kit.</li>
+      </ul>
+
+      <p><strong>Result.</strong> 2025-12-13 teaser show in Štítnik stress-tested the supply chain at hometown scale; 2026-04-22 Prague stop in a historic palace setting; 2026-05 Budapest exhibition; 2026-06-26 official collection launch in the Gemer region; Vienna · Prague · Budapest planned for 2027.</p>
+
+      <div class="meta-row">
+        <span><strong>Cities</strong> · Štítnik · Prague · Budapest · Rožňava</span>
+        <span><strong>Capacity</strong> · 200–500 / stop</span>
+        <span><strong>Press languages</strong> · SK · CZ · EN · HU</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASE 02 — GASTRO GEMER =================== -->
+  <section class="case" id="gastro">
+    <div class="head">
+      <div class="num">Case · 02</div>
+      <div class="title">Gastro Gemer Fest — <em>regional food festival</em></div>
+      <div class="where">
+        Main public square · Rožňava<br/>
+        5th edition · 27 June 2026<br/>
+        Capacity 500+
+      </div>
+    </div>
+    <div class="body">
+      <p>A one-day regional food festival on Rožňava's main public square. Five editions in, the festival has become the cross-border anchor for the Gemer gastronomic calendar — Slovak and Hungarian visitors arrive from both sides of the Slaná valley.</p>
+
+      <p><strong>Production scope:</strong></p>
+      <ul>
+        <li>Municipal public-square permit — sanitation, waste plan, fire/electrical clearance, MoP liaison.</li>
+        <li>Stall map with electrical run, water, queueing flow; 25–40 regional producers recruited.</li>
+        <li>Stage programme — folklore ensembles, live music, cooking demos.</li>
+        <li>Bilingual SK/HU signage from the main road inwards — measurable cross-border footfall lift.</li>
+        <li>Cashless payment partner; one queue plan per stall cluster.</li>
+        <li>Volunteer roster, single WhatsApp group, one printed run-sheet per shift.</li>
+      </ul>
+
+      <p><strong>What I learned that I'd carry to Budapest.</strong> Food events live or die on flow. The stall map + queue plan + cashless partner is half the production. Bilingual signage at the road edge is what actually pulls cross-border guests.</p>
+
+      <div class="meta-row">
+        <span><strong>Permit</strong> · Municipal public-square</span>
+        <span><strong>Stalls</strong> · 25–40</span>
+        <span><strong>Footfall</strong> · 500+</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASE 03 — WINE TASTINGS =================== -->
+  <section class="case" id="wine">
+    <div class="head">
+      <div class="num">Case · 03</div>
+      <div class="title">Wine tastings &amp; <em>multi-course suppers</em></div>
+      <div class="where">
+        Heritage estate grounds · Betliar<br/>
+        Summer + autumn programme<br/>
+        40–90 covers · curated 6–8 pours
+      </div>
+    </div>
+    <div class="body">
+      <p>Curated wine tastings on a historical heritage estate, often combined into multi-course suppers with regional gastronomy partners. Designed for premium small groups — corporate clients, cultural-tourism audiences, the Csetneki press circuit on its Rožňava stop.</p>
+
+      <p><strong>What goes into each tasting:</strong></p>
+      <ul>
+        <li>Sommelier or certified-pour staffing; pre-selected 6–8 wines with bilingual tasting notes.</li>
+        <li>Glassware procurement — count, back-up, on-site cleaning.</li>
+        <li>Cheese &amp; charcuterie pairing — local producer partner.</li>
+        <li>Liquor licensing &amp; responsibility-pour rules.</li>
+        <li>Multi-course supper option — partner kitchens, allergen log, table service plan.</li>
+        <li>Hard capacity cap at 90; we sell out before we oversell.</li>
+      </ul>
+
+      <p><strong>Why it works.</strong> Hard caps protect the experience; bilingual notes (SK + EN, HU on request) let cross-border guests follow the pour at their own pace; the supper add-on raises AOV without thinning the host's attention.</p>
+
+      <div class="meta-row">
+        <span><strong>Format</strong> · 6–8 pours + pairing</span>
+        <span><strong>Capacity ceiling</strong> · 90</span>
+        <span><strong>Add-on</strong> · multi-course supper</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASE 04 — WORKSHOPS =================== -->
+  <section class="case" id="workshops">
+    <div class="head">
+      <div class="num">Case · 04</div>
+      <div class="title">Gemcraft workshops — <em>B2B team-building &amp; B2C drop-ins</em></div>
+      <div class="where">
+        Štítnik · year-round<br/>
+        Glass · ceramics · silvering · painting<br/>
+        B2B (8–20 / half-day) · B2C (3 hr slots)
+      </div>
+    </div>
+    <div class="body">
+      <p>The workshops sit between hospitality and manufacturing. B2B groups — corporate team-buildings — book half-day formats with a take-home piece; B2C drop-ins run on a kiln-driven rhythm. The same floor that supplies Csetneki's ceramic ornaments runs four-disciplines of hands-on programming.</p>
+
+      <p><strong>What I manage:</strong></p>
+      <ul>
+        <li><strong>People</strong> — workshop team scheduling, payroll cadence, holiday cover.</li>
+        <li><strong>Inventory</strong> — clay, glaze, glass cullet, paints, kiln consumables with reorder thresholds per material.</li>
+        <li><strong>Kiln scheduling</strong> — bisque + glaze firing rhythm sets available workshop slots.</li>
+        <li><strong>Bookings</strong> — landing pages per format; auto-confirmation; reminder cadence.</li>
+        <li><strong>B2B sales</strong> — Outbound to Slovak and Hungarian SMEs through dedicated outreach pipelines; per-school-type variants for school programmes.</li>
+        <li><strong>Add-ons</strong> — catering, photo bundle, "take-the-piece-home" boxes; AOV rises 30–60% on corporate bookings.</li>
+        <li><strong>Compliance</strong> — fire-safety, insurance, minor-participant waivers, allergen disclosure when food is on the floor.</li>
+      </ul>
+
+      <div class="meta-row">
+        <span><strong>Disciplines</strong> · 4</span>
+        <span><strong>Format mix</strong> · B2B + B2C</span>
+        <span><strong>Throughput</strong> · year-round</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASE 05 — FESTIVAL =================== -->
+  <section class="case" id="osudy">
+    <div class="head">
+      <div class="num">Case · 05</div>
+      <div class="title">Osudy umenia — <em>roaming art-film festival</em></div>
+      <div class="where">
+        Rakovnica · Kobeliarovo · Klaštor Rožňava<br/>
+        Weekend · July 2026<br/>
+        Audience 250–600 across sites
+      </div>
+    </div>
+    <div class="body">
+      <p>A weekend art-film festival that roams between three small cultural venues in the Gemer region. Short-form documentary, artist talks, screening discussions. A small festival that moves attracts curious audiences from each village along the route — total throughput beats any single-venue equivalent.</p>
+
+      <p><strong>What we produced:</strong></p>
+      <ul>
+        <li>Line-up with curators; screening rights secured.</li>
+        <li>Three venue contracts; rolling schedule with intentional buffer for audience travel between sites.</li>
+        <li>Mobile projection rig + sound + blackout solution for non-cinema venues.</li>
+        <li>Bilingual host scripts SK / EN; live translation on Q&amp;A.</li>
+        <li>Press release; regional + Bratislava media list; in-house editorial cover from Gemer Times.</li>
+        <li>One WhatsApp group, one printed run-sheet per venue, one FOH lead per site + a connecting runner.</li>
+      </ul>
+
+      <p><strong>Lesson.</strong> Q&amp;A is the actual product. Films are the bait. Projection-rig redundancy matters — every venue is a different room with different acoustics, light leak and power.</p>
+
+      <div class="meta-row">
+        <span><strong>Sites</strong> · 3</span>
+        <span><strong>Format</strong> · roaming weekend</span>
+        <span><strong>Audience</strong> · 250–600</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASE 06 — SUMMER ACADEMY =================== -->
+  <section class="case" id="academy">
+    <div class="head">
+      <div class="num">Case · 06</div>
+      <div class="title">Summer Academy — <em>three parallel youth schools</em></div>
+      <div class="where">
+        Štítnik (Gemcraft) · Betliar<br/>
+        July–August 2026 · 5-week footprint<br/>
+        80–150 youth · 12+ facilitators
+      </div>
+    </div>
+    <div class="body">
+      <p>Three parallel youth summer schools — ceramics, drawing/painting, music-theatre — running over a five-week footprint with a joint vernissage final weekend. The full residential apparatus: accommodation block, three meals a day, materials kits, parental waivers, daily transport, and a photo-report-as-marketing loop.</p>
+
+      <p><strong>Operating playbook:</strong></p>
+      <ul>
+        <li>Facilitator roster — contracts, accommodation, lesson plans, materials lists.</li>
+        <li>Accommodation block — youth + facilitators, gendered rooms, dietary list.</li>
+        <li>Materials kit per child — at 130% buffer; youth always over-consume.</li>
+        <li>Parental waivers + youth-programme insurance + GDPR-compliant photo consent.</li>
+        <li>Three meals + snacks daily; allergen log; catering partner.</li>
+        <li>Daily transport between dormitory and workshop / studio.</li>
+        <li>Three mini-showcases + joint vernissage; daily emailed photo report to parents (auto-built).</li>
+      </ul>
+
+      <p><strong>Effect on next year's enrolment.</strong> Daily photo reports become the marketing — parents share into their networks; the following year fills before public open.</p>
+
+      <div class="meta-row">
+        <span><strong>Tracks</strong> · 3 parallel</span>
+        <span><strong>Youth</strong> · 80–150</span>
+        <span><strong>Footprint</strong> · 5 weeks</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== SKILL PANORAMA =================== -->
+  <section class="section">
+    <div class="section-label">Skill panorama</div>
+    <h2 class="section-title">End-to-end <em>production.</em></h2>
+    <p class="section-intro">
+      Every event runs across the same four phases. The discipline isn't taste — it's the spreadsheet, the run-sheet and the WhatsApp group, and the rhythm of getting all three to match.
+    </p>
+
+    <div class="skills">
+      <div class="skill">
+        <h4>Pre-production</h4>
+        <ul>
+          <li>Venue scouting &amp; contracts</li>
+          <li>Artist / supplier rosters &amp; riders</li>
+          <li>Municipal permits, MoP, fire-safety</li>
+          <li>Budget envelope &amp; sponsorship outreach</li>
+          <li>Insurance &amp; liability</li>
+          <li>Catering &amp; wine partner sourcing</li>
+          <li>Glassware, AV, runway tape, signage</li>
+          <li>Volunteer roster &amp; staff cover</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Marketing &amp; press</h4>
+        <ul>
+          <li>Brand brief → bilingual / trilingual pack</li>
+          <li>SK · CZ · EN · HU copy &amp; signage</li>
+          <li>Posters, social cards, runway-order PDFs</li>
+          <li>RSVP &amp; ticketing operation</li>
+          <li>Press list — regional, Prague, Budapest</li>
+          <li>One-page release + image bank</li>
+          <li>Embargoes per city stop</li>
+          <li>Multi-channel social rollout</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Production day</h4>
+        <ul>
+          <li>Floor plan &amp; flow</li>
+          <li>Tech check — sound, lighting, projection</li>
+          <li>Front-of-house &amp; door management</li>
+          <li>Photographer / videographer brief</li>
+          <li>Translator on standby (HU / DE / EN)</li>
+          <li>Live multilingual hosting</li>
+          <li>Run-sheet + single WhatsApp channel</li>
+          <li>Incident &amp; weather contingency</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Post-event</h4>
+        <ul>
+          <li>Photo / video edit &amp; delivery</li>
+          <li>Press follow-up &amp; clippings file</li>
+          <li>Email newsletter recap</li>
+          <li>Visitor / participant feedback survey</li>
+          <li>Artist payouts &amp; settlement</li>
+          <li>Supplier reconciliation</li>
+          <li>Sales record &amp; CRM update</li>
+          <li>Lessons-learned debrief</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== LANGUAGES =================== -->
+  <section class="section">
+    <div class="section-label">Languages</div>
+    <h2 class="section-title">Five working <em>tongues.</em></h2>
+    <p class="section-intro">
+      Triple-bilingual events are a <em>logistics</em> problem, not a translation problem. I run a single source-of-truth document per event across print and digital, and I host in the language the room is in.
+    </p>
+    <div class="lang-row">
+      <div class="lang"><div class="l">Czech</div><div class="lvl"><strong>Fluent</strong> · daily working</div></div>
+      <div class="lang"><div class="l"><em>English</em></div><div class="lvl"><strong>Fluent</strong> · press &amp; international</div></div>
+      <div class="lang"><div class="l">Spanish</div><div class="lvl"><strong>Fluent</strong> · hosting &amp; press</div></div>
+      <div class="lang"><div class="l"><em>French</em></div><div class="lvl"><strong>Fluent</strong> · hosting &amp; press</div></div>
+      <div class="lang"><div class="l">Slovak</div><div class="lvl"><strong>High</strong> · home market</div></div>
+    </div>
+  </section>
+
+  <!-- =================== JOB FIT BAND =================== -->
+  <section class="section" id="fit">
+    <div class="fit">
+      <div class="label">Specifically for · Event Manager (FR / ES) · Budapest</div>
+      <h2>Why this role, <em>and why now.</em></h2>
+      <p>
+        I delivered <strong>156 multilingual events with 20,000+ participants in 2025</strong> across Slovakia, Czechia and Hungary — the Csetneki tour passes through Budapest on every cycle, Gastro Gemer Fest pulls cross-border footfall from across the Slaná valley, and our wine programme is built for international corporate audiences. The Budapest role is the move from <em>commissioning the venue, the press list and the bilingual pack</em> to doing the same for an international event-management company at scale, with French- and Spanish-speaking clients I can host directly.
+      </p>
+      <div class="fit-grid">
+        <div class="row"><div class="k">Languages</div><div class="v"><strong>FR · ES · EN</strong> all fluent — both Randstad variants of this role covered with one candidate. Plus CZ &amp; SK for Central-European supplier work.</div></div>
+        <div class="row"><div class="k">Hospitality</div><div class="v">Multi-month placement in a regional Slovak hotel covering front-of-house, F&amp;B coordination, multilingual guest relations and daily settlement.</div></div>
+        <div class="row"><div class="k">Tourism</div><div class="v">Budapest is a regular stop on the Csetneki tour and a cross-border anchor for the Gemer gastronomic programme — I already work the Hungarian press list and venue panel.</div></div>
+        <div class="row"><div class="k">Event lifecycle</div><div class="v">Offers, budgets, logistics, supplier contracts, site visits, on-site delivery — end-to-end across <strong>156 events &amp; 20,000+ participants in 2025</strong>, in 8 event categories.</div></div>
+        <div class="row"><div class="k">Office discipline</div><div class="v">Spreadsheet-driven operations across budgets, supplier panels, RSVP lists, run-sheets and post-event settlement — Word/Excel daily.</div></div>
+        <div class="row"><div class="k">Working style</div><div class="v">Independent project ownership; precise about money and capacity caps; solution-oriented under day-of pressure; team-oriented with volunteers and house staff.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== TOOLBELT =================== -->
+  <section class="section">
+    <div class="section-label">Stack &amp; toolbelt</div>
+    <h2 class="section-title">What runs <em>behind</em> the room.</h2>
+    <p class="section-intro">
+      I treat operational tooling as a competitive advantage. The same spreadsheet discipline that protects a wine tasting's hard cap also protects an entire summer-academy roster.
+    </p>
+    <div class="skills" style="margin-top:32px;">
+      <div class="skill">
+        <h4>Ops &amp; admin</h4>
+        <ul>
+          <li>Excel &amp; Word — fluent daily use</li>
+          <li>Google Workspace</li>
+          <li>WhatsApp Business per-event groups</li>
+          <li>Single-source run-sheet template</li>
+          <li>Per-event budget templates</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Booking &amp; ticketing</h4>
+        <ul>
+          <li>Upgates landing pages &amp; RSVP</li>
+          <li>Auto-confirmation &amp; reminder cadence</li>
+          <li>Guest-list &amp; seat-allocation grids</li>
+          <li>Capacity caps &amp; waitlists</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Marketing &amp; press</h4>
+        <ul>
+          <li>Postiz multi-channel social</li>
+          <li>Bilingual / quad-lingual press packs</li>
+          <li>One-page release + image bank</li>
+          <li>Catalogue &amp; runway-order PDFs</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h4>Compliance &amp; safety</h4>
+        <ul>
+          <li>Municipal permit liaison</li>
+          <li>Fire-safety sign-off</li>
+          <li>GDPR-compliant guest data</li>
+          <li>Insurance &amp; waivers</li>
+          <li>Allergen logs &amp; responsibility-pour</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <div class="sign">
+      Let's <em>build the room.</em>
+    </div>
+    <div class="contact">
+      <div><a href="mailto:nikostepan24@gmail.com">nikostepan24@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/nikolas-stepan-545417221">linkedin / nikolas-stepan</a></div>
+      <div>Rožňava · Prague · open to Budapest</div>
+      <div style="margin-top:14px;">FR · ES · EN · CZ · SK</div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
