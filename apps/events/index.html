@@ -471,6 +471,21 @@
     footer{grid-template-columns:1fr;}
     footer .contact{text-align:left;}
   }
+  @media (max-width: 560px){
+    .page{padding:32px 18px 64px;}
+    .name{font-size:clamp(48px, 14vw, 80px); line-height:0.95;}
+    .stats{grid-template-columns:1fr; gap:18px;}
+    .skills{grid-template-columns:1fr;}
+    .lang-row{grid-template-columns:1fr; gap:8px;}
+    h2{font-size:clamp(26px, 6vw, 36px) !important; line-height:1.1;}
+    .lede{font-size:clamp(16px, 4vw, 19px) !important; line-height:1.5;}
+    /* drift motes are visible but smaller to not crowd */
+    #ink{opacity:0.55;}
+  }
+  @media (hover: none) {
+    /* touch devices: cursor blot already off; remove magnetic transforms remnants */
+    a.magnet { transform: none !important; }
+  }
 </style>
 </head>
 <body>

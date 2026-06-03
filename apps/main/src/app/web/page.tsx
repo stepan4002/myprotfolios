@@ -37,7 +37,7 @@ const SHIPPED = [
 export default function WebTab() {
   return (
     <>
-      <section className="page-section pt-40 md:pt-52 pb-20">
+      <section className="page-section pt-28 sm:pt-40 md:pt-52 pb-16 sm:pb-20">
         <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent)] mb-10">
           Pillar II · Web & AI Systems
         </div>

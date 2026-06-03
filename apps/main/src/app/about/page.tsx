@@ -40,7 +40,7 @@ const LANGS = [
 export default function AboutPage() {
   return (
     <>
-      <section className="page-section pt-40 md:pt-52 pb-20">
+      <section className="page-section pt-28 sm:pt-40 md:pt-52 pb-16 sm:pb-20">
         <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-mute)] mb-10">
           About
         </div>

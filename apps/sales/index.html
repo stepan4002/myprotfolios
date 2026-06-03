@@ -214,6 +214,66 @@ footer a:hover{color:var(--accent)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
+/* ============ MOBILE — < 760 ============ */
+@media (max-width: 760px) {
+  section { padding: 56px 0; }
+  .wrap { padding: 0 18px; }
+  .mast { padding: 16px 0 12px; }
+  .mast .wrap { gap: 12px; }
+  .mast .title { font-size: 18px; }
+  .mast .meta { font-size: 10px; gap: 12px; }
+  .mast a.cta { padding: 8px 14px; font-size: 12px; }
+  .hero { padding: 40px 0 24px; }
+  .hero .vol { font-size: 10px; padding: 10px 0; margin-bottom: 32px; }
+  .cover-title { font-size: clamp(44px, 12vw, 72px); line-height: 0.95; letter-spacing: -0.03em; }
+  .cover-lede { font-size: 18px; }
+  .cover-meta { font-size: 10px; }
+  .toc-item { grid-template-columns: 44px 1fr 56px; gap: 12px; padding: 14px 0; }
+  .toc-item .name { font-size: 17px; }
+  .toc-item .pg { font-size: 10px; }
+  .ticker { padding: 56px 0; }
+  .ticker-grid { grid-template-columns: 1fr; border-left: 0; }
+  .tick { padding: 28px 0 28px; border-right: 0; border-bottom: 1px solid var(--rule-soft); }
+  .tick:last-child { border-bottom: 0; }
+  .tick .n { font-size: clamp(64px, 18vw, 96px); }
+  .tick .sub { max-width: 100%; }
+  .chapter { padding: 64px 0; }
+  .chap-head .title { font-size: clamp(28px, 7vw, 40px); }
+  .venture { padding: 28px 0; }
+  .venture .v-name { font-size: 36px; }
+  .venture .v-body { font-size: 17px; }
+  .venture .v-stats { gap: 16px; }
+  .venture .v-stat b { font-size: 22px; }
+  .scale-vis { margin: 40px 0; padding: 24px 0; }
+  /* Make SVG growth chart taller-friendly on narrow screens: scrollable horizontally */
+  .scale-vis svg { min-width: 600px; }
+  .scale-vis .caption { font-size: 9px; gap: 10px; }
+  .pipe .n { font-size: 40px; }
+  .pipe .t { font-size: 18px; }
+  .lmap .col { padding: 28px 22px; }
+  .lmap .row .l-name { font-size: 19px; min-width: 130px; }
+  .lmap .row .l-tag { font-size: 10px; }
+  .sell-col { padding: 28px 22px; }
+  .sell-col h5 { font-size: 24px; }
+  .creds { gap: 10px; }
+  .cred { padding: 22px 18px; }
+  .cred .school { font-size: 16px; }
+  .final { padding: 88px 0; }
+  .final h2 { font-size: clamp(32px, 8vw, 48px); }
+  .final .lede { font-size: 18px; }
+  .final a.cta-large, .final a.cta-line { padding: 16px 22px; font-size: 14px; }
+  footer { padding: 28px 0 40px; }
+  footer .wrap { font-size: 11px; }
+}
+/* Allow horizontal scroll only inside the chart container so SVG isn't squashed unreadable */
+@media (max-width: 760px) {
+  .scale-vis {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 32px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce){
   .letter,.reveal{opacity:1!important;transform:none!important}
   .mast .meta .pulse::before{animation:none}

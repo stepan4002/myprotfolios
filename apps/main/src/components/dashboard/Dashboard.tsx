@@ -109,24 +109,24 @@ export function Dashboard() {
       {/* HERO — calmer scale, more whitespace, no overflow */}
       <section
         ref={heroRef}
-        className="page-section pt-44 md:pt-56 pb-32 md:pb-48 overflow-x-hidden"
+        className="page-section pt-28 sm:pt-40 md:pt-56 pb-20 sm:pb-32 md:pb-48 overflow-x-hidden"
       >
-        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-mute)] mb-16">
+        <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[var(--ink-mute)] mb-8 sm:mb-12 md:mb-16">
           Nikolas Stepan — Portfolio 2026
         </div>
 
         <h1
-          className="font-serif font-light leading-[1.02] tracking-[-0.035em] text-[var(--ink)] mb-20"
-          style={{ fontSize: 'clamp(40px, 7vw, 96px)', maxWidth: '14ch' }}
+          className="font-serif font-light leading-[1.02] tracking-[-0.035em] text-[var(--ink)] mb-10 sm:mb-16 md:mb-20"
+          style={{ fontSize: 'clamp(36px, 8vw, 96px)', maxWidth: '14ch' }}
         >
           <TabRevealText>Founder, builder,</TabRevealText>{' '}
           <em className="italic font-light"><TabRevealText delay={250}>operator.</TabRevealText></em>
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-16 md:gap-24 items-start mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 sm:gap-14 md:gap-24 items-start mt-10 sm:mt-16 md:mt-20">
           <p
             className="font-serif font-light leading-[1.5] tracking-[-0.015em] text-[var(--ink-soft)]"
-            style={{ fontSize: 'clamp(17px, 1.7vw, 21px)', maxWidth: '600px' }}
+            style={{ fontSize: 'clamp(16px, 1.8vw, 21px)', maxWidth: '600px' }}
           >
             I'm Nikolas — 23, Czech, multilingual. I co-founded my first company at sixteen and have been
             building, directing and selling across three ventures ever since. I work across three pillars:
@@ -134,17 +134,17 @@ export function Dashboard() {
             <em className="italic"> international sales</em>.
           </p>
 
-          <div className="font-mono text-[12px] leading-[2] text-[var(--ink-mute)] uppercase tracking-[0.1em] md:text-right md:min-w-[240px]">
+          <div className="font-mono text-[11px] sm:text-[12px] leading-[2] text-[var(--ink-mute)] uppercase tracking-[0.1em] md:text-right md:min-w-[240px]">
             <div className="opacity-60">Based</div>
-            <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">{SITE.location}</div>
-            <div className="mt-7 opacity-60">Reach</div>
-            <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">
+            <div className="text-[var(--ink)] normal-case tracking-normal text-[13px] sm:text-[14px] mt-1">{SITE.location}</div>
+            <div className="mt-5 sm:mt-7 opacity-60">Reach</div>
+            <div className="text-[var(--ink)] normal-case tracking-normal text-[13px] sm:text-[14px] mt-1 break-all">
               <a href={`mailto:${SITE.email}`} className="border-b border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
                 {SITE.email}
               </a>
             </div>
-            <div className="mt-7 opacity-60">Languages</div>
-            <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">EN · FR · ES · CZ · SK</div>
+            <div className="mt-5 sm:mt-7 opacity-60">Languages</div>
+            <div className="text-[var(--ink)] normal-case tracking-normal text-[13px] sm:text-[14px] mt-1">EN · FR · ES · CZ · SK</div>
           </div>
         </div>
       </section>
@@ -217,13 +217,13 @@ export function Dashboard() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 font-mono text-[12px] text-[var(--ink-mute)] uppercase tracking-[0.1em]">
-          <span>Direct subdomains for each pillar →</span>
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-8 gap-y-3 font-mono text-[11px] sm:text-[12px] text-[var(--ink-mute)] uppercase tracking-[0.1em]">
+          <span>Direct subdomains →</span>
           {PILLARS.map((p) => (
             <a
               key={p.id}
               href={p.full}
-              className="text-[var(--ink)] border-b border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors normal-case tracking-normal text-[13px]"
+              className="text-[var(--ink)] border-b border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors normal-case tracking-normal text-[12px] sm:text-[13px] break-all sm:break-normal"
             >
               {p.full.replace('https://', '')}
             </a>

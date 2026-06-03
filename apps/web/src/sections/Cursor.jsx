@@ -5,6 +5,9 @@ export default function Cursor() {
   const ring = useRef(null);
 
   useEffect(() => {
+    // Skip entirely on touch devices — no mouse → no cursor → don't render or listen
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
     let mx = window.innerWidth / 2, my = window.innerHeight / 2;
     let rx = mx, ry = my;
     let raf;
