@@ -132,7 +132,7 @@ function Card({ p, idx, open, onToggle }) {
   return (
     <article
       ref={ref}
-      className={`project-card reveal ${open ? 'is-open' : ''}`}
+      className={`project-card ${open ? 'is-open' : ''}`}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       onClick={onToggle}

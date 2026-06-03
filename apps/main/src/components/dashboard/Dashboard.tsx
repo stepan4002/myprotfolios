@@ -106,38 +106,44 @@ export function Dashboard() {
 
   return (
     <>
-      {/* HERO — big, calm, lots of whitespace */}
+      {/* HERO — calmer scale, more whitespace, no overflow */}
       <section
         ref={heroRef}
-        className="page-section pt-44 md:pt-56 pb-28 md:pb-40"
+        className="page-section pt-44 md:pt-56 pb-32 md:pb-48 overflow-x-hidden"
       >
-        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-mute)] mb-10">
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-mute)] mb-16">
           Nikolas Stepan — Portfolio 2026
         </div>
 
-        <h1 className="font-serif font-light text-[clamp(48px,9vw,128px)] leading-[0.96] tracking-[-0.035em] text-[var(--ink)] mb-12">
+        <h1
+          className="font-serif font-light leading-[1.02] tracking-[-0.035em] text-[var(--ink)] mb-20"
+          style={{ fontSize: 'clamp(40px, 7vw, 96px)', maxWidth: '14ch' }}
+        >
           <TabRevealText>Founder, builder,</TabRevealText>{' '}
           <em className="italic font-light"><TabRevealText delay={250}>operator.</TabRevealText></em>
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 md:gap-20 items-end mt-16">
-          <p className="max-w-[640px] font-serif font-light text-[clamp(20px,2.2vw,26px)] leading-[1.4] tracking-[-0.015em] text-[var(--ink-soft)]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-16 md:gap-24 items-start mt-20">
+          <p
+            className="font-serif font-light leading-[1.5] tracking-[-0.015em] text-[var(--ink-soft)]"
+            style={{ fontSize: 'clamp(17px, 1.7vw, 21px)', maxWidth: '600px' }}
+          >
             I'm Nikolas — 23, Czech, multilingual. I co-founded my first company at sixteen and have been
             building, directing and selling across three ventures ever since. I work across three pillars:
             <em className="italic"> cultural events</em>, <em className="italic">web & AI</em>, and
             <em className="italic"> international sales</em>.
           </p>
 
-          <div className="font-mono text-[12px] leading-[1.9] text-[var(--ink-mute)] uppercase tracking-[0.1em] md:text-right md:min-w-[220px]">
+          <div className="font-mono text-[12px] leading-[2] text-[var(--ink-mute)] uppercase tracking-[0.1em] md:text-right md:min-w-[240px]">
             <div className="opacity-60">Based</div>
             <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">{SITE.location}</div>
-            <div className="mt-5 opacity-60">Reach</div>
+            <div className="mt-7 opacity-60">Reach</div>
             <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">
-              <a href={`mailto:${SITE.email}`} className="border-b border-[var(--rule)] hover:border-[var(--accent)] transition-colors">
+              <a href={`mailto:${SITE.email}`} className="border-b border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
                 {SITE.email}
               </a>
             </div>
-            <div className="mt-5 opacity-60">Languages</div>
+            <div className="mt-7 opacity-60">Languages</div>
             <div className="text-[var(--ink)] normal-case tracking-normal text-[14px] mt-1">EN · FR · ES · CZ · SK</div>
           </div>
         </div>
@@ -260,7 +266,10 @@ export function Dashboard() {
         <div className="flex flex-wrap gap-x-10 gap-y-6 items-center">
           <a
             href={`mailto:${SITE.email}`}
-            className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--ink)] text-[var(--paper)] text-[14px] font-medium hover:bg-[var(--accent)] transition-colors"
+            className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-[14px] font-medium transition-colors"
+            style={{ background: 'var(--ink)', color: 'var(--paper)' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--accent)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--ink)'; }}
           >
             {SITE.email} →
           </a>

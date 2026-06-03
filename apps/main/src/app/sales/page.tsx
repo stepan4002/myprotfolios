@@ -148,8 +148,8 @@ export default function SalesTab() {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <a
               href={SITE.subdomains.sales}
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--ink)] hover:bg-[var(--accent)] transition-colors text-[14px] font-medium"
-              style={{ color: 'var(--paper)' }}
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-[14px] font-medium transition-colors"
+              style={{ background: 'var(--ink)', color: 'var(--paper)' }}
             >
               See the full sales portfolio →
             </a>

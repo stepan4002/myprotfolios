@@ -245,15 +245,17 @@ section { position: relative; }
   margin: 0 auto;
 }
 .hero h1 {
-  font-size: clamp(72px, 15vw, 240px);
-  line-height: 0.85;
-  letter-spacing: -0.045em;
-  font-weight: 500;   /* bolder — was 300, looked thin over the sphere */
+  font-size: clamp(54px, 10vw, 160px);   /* was 72/15vw/240 — too aggressive, overflowed */
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-weight: 500;
   font-family: var(--font-sans);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 2px 30px rgba(0,0,0,0.35);
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 16ch;   /* hard cap so it can't overflow on wide screens */
 }
-.hero h1 em { font-weight: 400; }
 .hero h1 em {
   font-style: italic;
   font-family: var(--font-serif);
@@ -261,7 +263,7 @@ section { position: relative; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-weight: 300;
+  font-weight: 400;
 }
 .hero-meta {
   display: grid;

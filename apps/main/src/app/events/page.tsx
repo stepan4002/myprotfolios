@@ -130,10 +130,10 @@ export default function EventsTab() {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <a
               href={SITE.subdomains.events}
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--ink)] text-[var(--paper)] hover:bg-[var(--accent)] transition-colors text-[14px] font-medium"
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-[14px] font-medium transition-colors"
+              style={{ background: 'var(--ink)', color: 'var(--paper)' }}
             >
-              <span style={{ color: 'var(--paper)' }}>See the full events portfolio</span>
-              <span style={{ color: 'var(--paper)' }}>→</span>
+              See the full events portfolio →
             </a>
             <span className="font-mono text-[12px] text-[var(--ink-mute)] uppercase tracking-[0.1em]">
               events.nikolasstepan.com

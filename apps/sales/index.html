@@ -206,8 +206,8 @@ footer{padding:40px 0 60px;font-size:12px;color:var(--ink-mute);font-family:"Jet
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;text-transform:uppercase}
 footer a:hover{color:var(--accent)}
 
-/* Letter reveal — applied to hero title */
-.letter{display:inline-block;will-change:transform,opacity;opacity:0;transform:translateY(0.6em);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+/* Letter reveal — applied to hero title. white-space:pre preserves spaces inside the spans */
+.letter{display:inline-block;white-space:pre;will-change:transform,opacity;opacity:0;transform:translateY(0.6em);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
 .letter.in{opacity:1;transform:translateY(0)}
 
 /* Reveal-on-scroll */
@@ -479,6 +479,7 @@ footer a:hover{color:var(--accent)}
         <h4>The markets unlocked</h4>
         <div class="row"><div class="l-name"><em>Czechia</em></div><div class="leaders"></div><div class="l-tag">CZ · EN</div></div>
         <div class="row"><div class="l-name"><em>Slovakia</em></div><div class="leaders"></div><div class="l-tag">SK · CZ</div></div>
+        <div class="row"><div class="l-name"><em>Spain</em></div><div class="leaders"></div><div class="l-tag">ES · EN</div></div>
         <div class="row"><div class="l-name"><em>France</em></div><div class="leaders"></div><div class="l-tag">FR · EN</div></div>
         <div class="row"><div class="l-name"><em>Hungary</em></div><div class="leaders"></div><div class="l-tag">EN <span style="color:var(--ink-mute)">· HU learning</span></div></div>
         <div class="row"><div class="l-name"><em>EU wholesale</em></div><div class="leaders"></div><div class="l-tag">EN · ES · FR</div></div>
@@ -596,18 +597,23 @@ document.getElementById("y").textContent = new Date().getFullYear();
   const t = document.getElementById('coverTitle');
   if (!t || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const html = t.innerHTML;
-  // Wrap each visible character in a span.letter, preserve <em>/<br>
+  // Wrap each character in span.letter — preserving spaces as plain text nodes
+  // (so the inline-block letter cells don't swallow whitespace between words).
   const tmp = document.createElement('div');
   tmp.innerHTML = html;
   const walk = (node, out) => {
     if (node.nodeType === Node.TEXT_NODE) {
-      const chars = node.textContent.split('');
       const frag = document.createDocumentFragment();
-      chars.forEach(c => {
-        const s = document.createElement('span');
-        s.className = 'letter';
-        s.textContent = c;
-        frag.appendChild(s);
+      node.textContent.split('').forEach(c => {
+        if (c === ' ') {
+          // keep the space as a regular text node, not an animated cell
+          frag.appendChild(document.createTextNode(' '));
+        } else {
+          const s = document.createElement('span');
+          s.className = 'letter';
+          s.textContent = c;
+          frag.appendChild(s);
+        }
       });
       out.appendChild(frag);
     } else {

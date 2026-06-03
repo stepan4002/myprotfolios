@@ -98,7 +98,7 @@ export default function Pillars() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : p.key)}
                 aria-expanded={isOpen}
-                className={`pillar ${p.key} reveal ${isOpen ? 'is-open' : ''}`}
+                className={`pillar ${p.key} ${isOpen ? 'is-open' : ''}`}
                 data-hover
               >
                 <div className="num"><span className="dot" /> {p.num} &nbsp;{p.tag}</div>
