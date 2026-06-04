@@ -1,180 +1,318 @@
 @import "tailwindcss";
 
-/* ==========================================
-   Design Tokens — Nikolas Stepan editorial system
-   ========================================== */
+/* =================================================================
+   nikolasstepan.com — Editorial Magazine system
+   ================================================================= */
 
 :root {
-  --paper: #F4EFE6;
-  --paper-warm: #EFE9DC;
-  --paper-deep: #E8DFCC;
-  --ink: #14110D;
-  --ink-soft: #3A332A;
-  --ink-mute: #6F665A;
-  --rule: #D9D1C0;
-  --accent: #B14A2F;
-  --accent-soft: #E5A78F;
-  --shadow: 0 1px 0 rgba(0,0,0,0.02), 0 18px 42px -22px rgba(0,0,0,0.18);
+  /* Paper & ink */
+  --paper:        #F8F5EC;
+  --paper-warm:   #F3EEDF;
+  --paper-deep:   #EFE9DA;
+  --ink:          #0B0B0C;
+  --ink-soft:     #44423E;
+  --ink-mute:     #7A7770;
+  --rule:         #D6D2C8;
+  --rule-strong:  #0B0B0C;
+  --accent:       #1F3FBB;   /* ink blue */
+  --accent-deep:  #14238F;
+  --accent-soft:  #DCE3FF;
 
-  --header-h: 72px;
-  --page-max: 1180px;
-  --page-px: clamp(24px, 4vw, 64px);
+  /* Layout */
+  --page-max:    1240px;
+  --page-px:     clamp(20px, 4vw, 56px);
+  --col-gap:     clamp(16px, 1.6vw, 28px);
+  --col-count:   12;
+
+  /* Typography baseline */
+  --body-size:   16px;
 }
-
-/* ==========================================
-   Base
-   ========================================== */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  scroll-behavior: auto; /* Lenis handles smoothing, not CSS */
-}
-
-body {
+html { scroll-behavior: auto; }
+html, body {
   background: var(--paper);
   color: var(--ink);
+}
+body {
   font-family: var(--font-geist), "Geist", system-ui, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--body-size);
   line-height: 1.55;
   letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
-
-/* Default cursor restored — the custom Cursor component was causing perceived input weirdness */
-
 a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; background: none; border: 0; color: inherit; cursor: pointer; }
 
-/* ==========================================
-   Font family utilities
-   ========================================== */
+/* =================================================================
+   Typography utility families
+   ================================================================= */
 
-.font-serif { font-family: var(--font-fraunces), "Fraunces", serif; }
+.font-serif { font-family: var(--font-fraunces), "Fraunces", Georgia, serif; font-optical-sizing: auto; }
 .font-sans  { font-family: var(--font-geist), "Geist", system-ui, sans-serif; }
-.font-mono  { font-family: var(--font-mono), "JetBrains Mono", monospace; }
+.font-mono  { font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace; }
 
-/* ==========================================
-   Section Label — editorial divider
-   ========================================== */
+/* =================================================================
+   Editorial primitives — used by Chapter, Lede, PullQuote, Numeral
+   ================================================================= */
 
-.section-label {
-  font-family: var(--font-mono), "JetBrains Mono", monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.section-label::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
-}
-
-/* ==========================================
-   Page wrapper — consistent section spacing
-   ========================================== */
-
+/* Page wrapper — max width + horizontal padding */
 .page-section {
   max-width: var(--page-max);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--page-px);
   padding-right: var(--page-px);
-}
-
-/* ==========================================
-   Grain overlay
-   ========================================== */
-
-.grain-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-  mix-blend-mode: multiply;
-}
-
-/* ==========================================
-   Animated link underline
-   ========================================== */
-
-.link-reveal {
   position: relative;
-  display: inline;
-}
-.link-reveal::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-.link-reveal:hover::after {
-  width: 100%;
 }
 
-/* ==========================================
-   Section label hover — letters spread
-   ========================================== */
-
-.section-label {
-  transition: letter-spacing 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* Magazine 12-col grid for asymmetric layouts */
+.mag-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: clamp(20px, 2vw, 36px);
 }
-.section-label:hover {
-  letter-spacing: 0.28em;
+.col-span-1  { grid-column: span 1; }
+.col-span-2  { grid-column: span 2; }
+.col-span-3  { grid-column: span 3; }
+.col-span-4  { grid-column: span 4; }
+.col-span-5  { grid-column: span 5; }
+.col-span-6  { grid-column: span 6; }
+.col-span-7  { grid-column: span 7; }
+.col-span-8  { grid-column: span 8; }
+.col-span-9  { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+/* Mono uppercase label (used for chapter labels, page numbers, captions) */
+.mono-label {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
 }
 
-/* ==========================================
-   Selection
-   ========================================== */
+/* Chapter header — large numeral / italic title */
+.chapter-num {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 14px;
+  border-top: 2px solid var(--accent);
+  display: inline-block;
+  min-width: 100px;
+}
 
-::selection {
-  background: var(--accent-soft);
+/* Headline scale — fluid clamp */
+.h-display {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  font-size: clamp(48px, 9vw, 144px);
+}
+.h-display em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.h-section {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-size: clamp(36px, 5.4vw, 72px);
+}
+.h-section em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.h-piece {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  font-size: clamp(22px, 2.6vw, 34px);
+}
+.h-piece em { font-style: italic; font-weight: 300; color: var(--accent); }
+
+/* Lede paragraph — editorial body text */
+.lede {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  font-size: clamp(19px, 1.9vw, 24px);
+  color: var(--ink-soft);
+}
+.lede em { font-style: italic; color: var(--ink); }
+.lede strong { font-weight: 500; color: var(--ink); }
+
+/* Drop cap — used on first paragraph of a chapter */
+.dropcap::first-letter {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 5.4em;
+  line-height: 0.85;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--accent);
+  font-feature-settings: "kern", "liga";
+}
+
+/* Massive numeral display */
+.numeral {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-size: clamp(64px, 8vw, 128px);
+  font-feature-settings: "tnum", "lnum";
   color: var(--ink);
 }
-
-/* ==========================================
-   Scroll progress bar
-   ========================================== */
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: var(--accent);
-  z-index: 60;
-  transform-origin: left;
-  will-change: transform;
+.numeral em {
+  font-style: italic;
+  color: var(--accent);
 }
 
-/* ==========================================
-   Custom scrollbar (subtle)
-   ========================================== */
+/* Pull quote — used inside long body */
+.pull-quote {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.25;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  padding: 26px 0;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  position: relative;
+}
+.pull-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -24px;
+  left: -4px;
+  font-size: 110px;
+  line-height: 1;
+  color: var(--accent-soft);
+  font-style: normal;
+  font-weight: 400;
+}
 
-::-webkit-scrollbar { width: 6px; }
+/* Figure caption */
+.figure-label {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.figure-label b { color: var(--accent); font-weight: 500; }
+
+/* Rule lines */
+.rule { height: 1px; background: var(--rule); width: 100%; }
+.rule-strong { height: 1px; background: var(--rule-strong); width: 100%; }
+
+/* =================================================================
+   Card / Editorial spread
+   ================================================================= */
+
+.spread {
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: clamp(28px, 3vw, 48px);
+  background: var(--paper);
+  transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 1.8vw, 28px);
+  will-change: transform;
+}
+.spread:hover {
+  border-color: var(--ink);
+  background: var(--paper-warm);
+}
+
+/* =================================================================
+   Reveal animation classes (driven by React state via Reveal.tsx)
+   ================================================================= */
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =================================================================
+   Selection + scrollbar
+   ================================================================= */
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-mute); }
 
-/* ==========================================
+/* =================================================================
+   Buttons
+   ================================================================= */
+
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.btn-solid:hover { background: var(--accent); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* =================================================================
    Reduced motion
-   ========================================== */
+   ================================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -182,8 +320,20 @@ a { color: inherit; text-decoration: none; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  html { cursor: auto; }
-  body { cursor: auto; }
-  a, button, [role="button"] { cursor: auto; }
-  .grain-overlay { display: none; }
+  .reveal-init { opacity: 1; transform: none; }
+}
+
+/* =================================================================
+   Mobile collapse — single column on narrow screens
+   ================================================================= */
+
+@media (max-width: 760px) {
+  :root { --col-count: 4; --col-gap: 14px; }
+  .col-span-1, .col-span-2, .col-span-3,
+  .col-span-4, .col-span-5, .col-span-6,
+  .col-span-7, .col-span-8, .col-span-9,
+  .col-span-10, .col-span-11, .col-span-12 { grid-column: span 4; }
+  .dropcap::first-letter { font-size: 4.2em; }
+  .pull-quote { font-size: clamp(20px, 5vw, 26px); }
+  .pull-quote::before { font-size: 80px; top: -18px; }
 }

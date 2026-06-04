@@ -1,37 +1,29 @@
 import type { Metadata } from 'next';
 import { fraunces, geist, jetbrainsMono } from '@/lib/fonts';
 import { SITE } from '@/lib/constants';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { GrainOverlay } from '@/components/ui/GrainOverlay';
+import { Masthead } from '@/components/editorial/Masthead';
+import { Colophon } from '@/components/editorial/Colophon';
+import { SmoothScroll } from '@/components/editorial/SmoothScroll';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: SITE.title,
   description: SITE.description,
   openGraph: {
-    title: 'Nikolas Stepan — Founder · Director · Sales',
-    description:
-      'Production AI systems, cultural events at scale, international B2B & gallery sales.',
+    title: 'Nikolas Stepan — Vol. III · Issue 01 · 2026',
+    description: SITE.description,
     type: 'website',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${geist.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="en" className={`${fraunces.variable} ${geist.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <GrainOverlay />
-        <Header />
+        <SmoothScroll />
+        <Masthead />
         <main>{children}</main>
-        <Footer />
+        <Colophon />
       </body>
     </html>
   );

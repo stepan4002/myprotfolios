@@ -1,59 +1,46 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import type { Metadata } from 'next';
+import { Reveal } from '@/components/editorial/Reveal';
+import { ConstellationClient } from '@/components/projects-3d/ConstellationClient';
 import { projects } from '@/data/projects';
-import { ClientOnly } from '@/components/shared/ClientOnly';
-import { ScrollTriggerWrapper } from '@/components/shared/ScrollTriggerWrapper';
-import { ProjectGrid } from '@/components/ui/ProjectGrid';
 
-const SceneCanvas = dynamic(
-  () => import('@/components/scene/SceneCanvas').then((m) => m.SceneCanvas),
-  { ssr: false },
-);
-const WaveGrid = dynamic(
-  () => import('@/components/three/WaveGrid').then((m) => m.WaveGrid),
-  { ssr: false },
-);
-const ParticleField = dynamic(
-  () => import('@/components/three/ParticleField').then((m) => m.ParticleField),
-  { ssr: false },
-);
+export const metadata: Metadata = {
+  title: 'Project archive — Nikolas Stepan',
+  description: 'Interactive 3D archive of every shipped artifact across cultural events, web & AI, and international sales.',
+};
 
 export default function ProjectsPage() {
+  const counts = {
+    tech:   projects.filter((p) => p.category === 'tech').length,
+    events: projects.filter((p) => p.category === 'events').length,
+    sales:  projects.filter((p) => p.category === 'sales').length,
+  };
+
   return (
     <>
-      {/* Ambient 3D — wave grid + sparse particles for data/catalogue feel */}
-      <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
-        <ClientOnly>
-          <SceneCanvas>
-            <ambientLight intensity={0.3} />
-            <group position={[0, -3, -5]} rotation={[-0.5, 0, 0]}>
-              <WaveGrid gridSize={25} spacing={0.7} size={0.01} color="#D9D1C0" waveAmplitude={0.4} waveSpeed={0.6} />
-            </group>
-            <ParticleField count={200} spread={16} size={0.005} color="#E5A78F" />
-          </SceneCanvas>
-        </ClientOnly>
-      </div>
-
-      <div className="relative z-10 page-section pt-32 pb-16">
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-20 border-b border-[var(--rule)] pb-12"
-        >
-          <h1 className="font-serif font-light text-[clamp(48px,8vw,96px)] leading-[0.92] tracking-[-0.035em] text-[var(--ink)]">
-            All <span className="italic">projects.</span>
+      <section className="page-section pt-44 sm:pt-52 md:pt-60 pb-14 md:pb-20">
+        <Reveal>
+          <span className="chapter-num">PROJECT ARCHIVE</span>
+          <h1 className="h-display mt-10 max-w-[1200px]" style={{ fontSize: 'clamp(40px, 8vw, 112px)' }}>
+            Every shipped artifact, <em>floating in space.</em>
           </h1>
-          <p className="mt-8 max-w-[680px] text-[var(--ink-soft)] text-[17px] leading-[1.6]">
-            76 shipped artifacts across tech, events, and sales — from multi-agent AI systems
-            to 3D configurators to cultural event production.
+        </Reveal>
+        <Reveal delay={200}>
+          <p className="lede mt-12 max-w-[760px]">
+            A 3D archive of <strong>{projects.length} shipped artifacts</strong>: <em>{counts.tech} apps &amp; AI systems</em>, <em>{counts.events} event productions</em>, <em>{counts.sales} sales / commercial</em>. Drag to orbit, Shift+scroll to zoom, click any node to read the case.
           </p>
-        </motion.header>
+        </Reveal>
+      </section>
 
-        <ProjectGrid projects={projects} />
-      </div>
+      <section className="page-section pb-24 md:pb-32">
+        <Reveal>
+          <div className="border border-[var(--ink)] overflow-hidden bg-[var(--paper-warm)]">
+            <ConstellationClient />
+          </div>
+        </Reveal>
+        <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+          ● Apps &amp; AI · ■ Events · ◆ Sales · colour-coded by category
+        </p>
+      </section>
     </>
   );
 }

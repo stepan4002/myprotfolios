@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { SITE } from '@/lib/constants';
 import { Dashboard } from '@/components/dashboard/Dashboard';
 
