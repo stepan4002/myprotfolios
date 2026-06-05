@@ -1,0 +1,111 @@
+[
+  {
+    "viewport": "desktop",
+    "page": "home",
+    "url": "https://nikolasstepan.com",
+    "issues": [
+      "Overlap 100%: \"sixteen\" ↔ \"three ventures\"",
+      "Overlap 66%: \"Last word\" ↔ \"any of five languages.\""
+    ]
+  },
+  {
+    "viewport": "desktop",
+    "page": "about",
+    "url": "https://nikolasstepan.com/about",
+    "issues": []
+  },
+  {
+    "viewport": "desktop",
+    "page": "events",
+    "url": "https://nikolasstepan.com/events",
+    "issues": []
+  },
+  {
+    "viewport": "desktop",
+    "page": "web",
+    "url": "https://nikolasstepan.com/web",
+    "issues": []
+  },
+  {
+    "viewport": "desktop",
+    "page": "sales",
+    "url": "https://nikolasstepan.com/sales",
+    "issues": [
+      "Overlap 43%: \"CHAPTER III\" ↔ \"commercial work.\"",
+      "Overlap 47%: \"commercial work.\" ↔ \"Six years closing deals\""
+    ]
+  },
+  {
+    "viewport": "desktop",
+    "page": "projects",
+    "url": "https://nikolasstepan.com/projects",
+    "issues": [
+      "Overlap 43%: \"PROJECT ARCHIVE\" ↔ \"floating in space.\"",
+      "Overlap 47%: \"floating in space.\" ↔ \"22 shipped artifacts\"",
+      "Overlap 47%: \"floating in space.\" ↔ \"16 apps & AI systems\"",
+      "Overlap 100%: \"22 shipped artifacts\" ↔ \"3 event productions\"",
+      "Overlap 100%: \"16 apps & AI systems\" ↔ \"3 event productions\"",
+      "Overlap 100%: \"3 event productions\" ↔ \"3 sales / commercial\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "home",
+    "url": "https://nikolasstepan.com",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\"",
+      "Overlap 100%: \"cultural events\" ↔ \"web & AI\"",
+      "Overlap 81%: \"cultural events\" ↔ \"international sales\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "about",
+    "url": "https://nikolasstepan.com/about",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "events",
+    "url": "https://nikolasstepan.com/events",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "web",
+    "url": "https://nikolasstepan.com/web",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "sales",
+    "url": "https://nikolasstepan.com/sales",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\""
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "page": "projects",
+    "url": "https://nikolasstepan.com/projects",
+    "issues": [
+      "Wide: <span.flex gap-6> w=565 right=585 \"events.nikolasstepan.comweb.nikolasstepa\"",
+      "Wide: <a.> w=175 right=585 \"sales.nikolasstepan.com\"",
+      "Overlap 100%: \"22 shipped artifacts\" ↔ \"16 apps & AI systems\"",
+      "Overlap 100%: \"16 apps & AI systems\" ↔ \"3 event productions\"",
+      "Overlap 46%: \"16 apps & AI systems\" ↔ \"3 sales / commercial\"",
+      "Overlap 100%: \"3 event productions\" ↔ \"3 sales / commercial\""
+    ]
+  }
+]

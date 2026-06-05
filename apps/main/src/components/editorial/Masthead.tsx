@@ -32,10 +32,10 @@ export function Masthead() {
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,background] duration-300',
+        'sticky top-0 z-50 transition-[backdrop-filter,background] duration-300',
         scrolled
-          ? 'bg-[var(--paper)]/85 backdrop-blur-md border-b border-[var(--rule)]'
-          : 'bg-transparent',
+          ? 'bg-[var(--paper)]/92 backdrop-blur-md border-b border-[var(--rule)]'
+          : 'bg-[var(--paper)]',
       )}
     >
       {/* Top mono ribbon — magazine masthead row */}

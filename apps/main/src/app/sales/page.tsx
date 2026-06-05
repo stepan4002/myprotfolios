@@ -43,7 +43,7 @@ const MARKETS = [
 export default function SalesTab() {
   return (
     <>
-      <section className="page-section pt-44 sm:pt-52 md:pt-60 pb-20 md:pb-28">
+      <section className="page-section pt-16 sm:pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <span className="chapter-num">CHAPTER III</span>
           <h1 className="h-display mt-10 max-w-[1100px]" style={{ fontSize: 'clamp(40px, 8vw, 112px)' }}>

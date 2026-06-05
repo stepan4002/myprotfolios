@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <section className="page-section pt-44 sm:pt-52 md:pt-60 pb-14 md:pb-20">
+      <section className="page-section pt-16 sm:pt-24 md:pt-32 pb-14 md:pb-20">
         <Reveal>
           <span className="chapter-num">PROJECT ARCHIVE</span>
           <h1 className="h-display mt-10 max-w-[1200px]" style={{ fontSize: 'clamp(40px, 8vw, 112px)' }}>

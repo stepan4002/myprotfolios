@@ -12,7 +12,7 @@ export function Dashboard() {
   return (
     <>
       {/* ============== HERO ============== */}
-      <section className="page-section pt-44 sm:pt-52 md:pt-60 pb-24 md:pb-40">
+      <section className="page-section pt-16 sm:pt-24 md:pt-32 pb-24 md:pb-40">
         <div className="mag-grid">
           <Reveal className="col-span-12 md:col-span-9">
             <div className="mono-label mb-10 md:mb-14">

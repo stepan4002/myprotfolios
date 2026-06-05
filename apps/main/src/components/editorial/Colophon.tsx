@@ -6,22 +6,22 @@ import { SITE } from '@/lib/constants';
  */
 export function Colophon() {
   return (
-    <footer className="page-section py-20 md:py-28 border-t border-[var(--rule-strong)] mt-32 md:mt-48">
+    <footer className="page-section py-24 md:py-32 border-t border-[var(--rule-strong)] mt-40 md:mt-56 bg-[var(--paper-deep)]">
       <div className="mag-grid">
-        <div className="col-span-7">
+        <div className="col-span-12 md:col-span-7">
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink-mute)] mb-6">
             Colophon
           </div>
-          <h3 className="font-serif font-light text-[clamp(28px,3.6vw,46px)] leading-[1.05] tracking-[-0.025em] mb-8 max-w-[520px]">
-            <em className="italic">nikolasstepan.com</em> — Vol. III · Issue 01
+          <h3 className="font-serif font-light text-[clamp(20px,2.4vw,28px)] leading-[1.2] tracking-[-0.02em] mb-6 max-w-[520px]">
+            <em className="italic">nikolasstepan.com</em> · Vol. III · Issue 01
           </h3>
-          <p className="text-[14px] leading-[1.7] text-[var(--ink-soft)] max-w-[480px]">
+          <p className="text-[13.5px] leading-[1.7] text-[var(--ink-soft)] max-w-[480px]">
             Edited, written, designed and built by Nikolas Stepan. Typeset in Fraunces (Undercase Type
             Co-Op) and Geist (Vercel). Hosted on Vercel. Source code on GitHub.
           </p>
         </div>
 
-        <div className="col-span-5 md:flex md:flex-col md:items-end md:text-right">
+        <div className="col-span-12 md:col-span-5 md:flex md:flex-col md:items-end md:text-right">
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink-mute)] mb-6 mt-12 md:mt-0">
             Contact
           </div>
@@ -58,9 +58,9 @@ export function Colophon() {
         </div>
       </div>
 
-      <div className="mt-16 pt-6 border-t border-[var(--rule)] flex flex-wrap justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+      <div className="mt-16 pt-6 border-t border-[var(--rule)] flex flex-col sm:flex-row sm:flex-wrap sm:justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
         <span>© {new Date().getFullYear()} · Nikolas Stepan</span>
-        <span className="flex gap-6">
+        <span className="flex flex-col sm:flex-row flex-wrap gap-x-6 gap-y-2">
           <a href="https://events.nikolasstepan.com">events.nikolasstepan.com</a>
           <a href="https://web.nikolasstepan.com">web.nikolasstepan.com</a>
           <a href="https://sales.nikolasstepan.com">sales.nikolasstepan.com</a>
