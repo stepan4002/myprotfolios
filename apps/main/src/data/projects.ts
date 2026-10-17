@@ -197,7 +197,7 @@ export const projects: Project[] = [
       'A storybook adventure app for the Vodny Hrad Stitnik museum, where children are guided through ten physical stations by Lacko the friendly ghost, scanning QR codes, playing nine mini-games, collecting passport stamps and earning a final reward.',
     prose: [
       'A storybook adventure app for the Vodny Hrad Stitnik museum, where children are guided through ten physical stations by Lacko the friendly ghost, scanning QR codes, playing nine mini-games, collecting passport stamps and earning a final reward.',
-      'Ten station codes (ST01\u2013ST10) embedded in physical QR markers around the castle. Editable JSON story content with Slovak / English / Hungarian (via the audio generator) localisation. Hidden admin panel (PIN 1234) for staff to unlock, reset and demo. Animated ghost character, parchment-card themed UI, SafeImage component with graceful asset fallbacks.',
+      'Ten station codes (ST01\u2013ST10) embedded in physical QR markers around the castle. Editable JSON story content with Slovak / English / Hungarian (via the audio generator) localisation. Staff admin panel for controlled reset and demonstration; access details are not published. Animated ghost character, parchment-card themed UI, SafeImage component with graceful asset fallbacks.',
       'Hard parts. QR reliability under variable lighting inside a stone castle. Cross-platform (Android / iOS / Web) parity from one Flutter codebase. Offline-first persistence with Hive so the app works in spotty cellular coverage. Designing for children who tap impatiently and parents who want to read every word.',
     ],
     featured: true,

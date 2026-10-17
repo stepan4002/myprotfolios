@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Nikolas Stepan',
-  title: 'Nikolas Stepan — Forward Deployed AI Engineer & AI Solutions Architect',
-  description: 'Forward Deployed AI Engineer and AI Solutions Architect in Budapest. Multi-agent systems, voice agents and automation built around business operations.',
+  title: 'Nikolas Stepan — AI Solutions Engineer & Forward Deployed Engineer',
+  description: 'AI Solutions Engineer and Forward Deployed Engineer in Budapest. AI-assisted systems delivery, API integration, voice workflows and commerce automation.',
   url: 'https://nikolasstepan.com',
   email: 'nikostepan24@gmail.com',
   phone: '+36 30 667 0892',

@@ -12,14 +12,14 @@ export interface CaseStudy {
 }
 
 // Curated from the migrated Main, Web and Sales portfolios. No new ROI estimates.
-export const caseStudies: CaseStudy[] = [
+const studies: CaseStudy[] = [
   {
     slug: 'groupops', title: 'GroupOps', company: 'Multi-company operations', kind: 'agents',
-    summary: '70+ agents. Five company pods. One operating layer.',
+    summary: 'A documented newsroom workflow within a broader, mixed-maturity agent architecture.',
     problem: 'Running several companies creates repeated coordination work across customer communication, publishing, logistics and finance.',
     architecture: 'Company-isolated pods, specialised agents, persona and memory, scheduled heartbeats, an OpenClaw bridge, and an L0–L4 autonomy ladder. Approval gates and audit trails govern outbound actions.',
-    impact: 'A shared operating model for five company pods, with 70+ agents described across the portfolio. The Gemer Times newsroom is the documented live editorial workflow; maturity varies by pod.',
-    stack: ['TypeScript', 'Node.js', 'Fastify', 'OpenClaw', 'Claude', 'YAML'], proof: '70+ agents · 5 company pods',
+    impact: 'A shared operating model across company pods. Gemer Times is the documented newsroom workflow; other pods vary in maturity and no current reconciled operating-agent inventory is published.',
+    stack: ['TypeScript', 'Node.js', 'Fastify', 'OpenClaw', 'Claude', 'YAML'], proof: 'Newsroom workflow · other pods at varying stages',
   },
   {
     slug: 'cadema-voice-agent', title: 'CADEMA Voice Agent', company: 'CADEMA', kind: 'agents',
@@ -50,8 +50,8 @@ export const caseStudies: CaseStudy[] = [
     summary: '314 SKUs, with the data work the import tool could not do.',
     problem: 'A PrestaShop-to-Upgates migration involved mixed Czech/Slovak titles, incomplete product identifiers and inconsistent catalogue records.',
     architecture: 'Python and Playwright integrate with the Upgates API. Diacritic-aware normalisation, EAN-13 check digits and JSON progress checkpoints make the process resumable.',
-    impact: 'The existing portfolio records 314 migrated SKUs, 895 normalised EAN entries, a 94% CZ/SK match rate and 374 generated EAN-13 codes.',
-    stack: ['Python', 'Playwright', 'Upgates API', 'EAN-13'], proof: '314 SKUs · 94% match rate',
+    impact: 'The existing project record describes a 314-SKU migration. The original reconciliation report and the denominator behind the previously quoted 94% match rate are not published, so that rate is not presented as a verified outcome.',
+    stack: ['Python', 'Playwright', 'Upgates API', 'EAN-13'], proof: '314 SKUs in the documented migration scope',
   },
   {
     slug: 'marketing-lab', title: 'Marketing Lab', company: 'Campaign production', kind: 'automation',
@@ -61,4 +61,22 @@ export const caseStudies: CaseStudy[] = [
     impact: 'A documented test pack produced 22 deliverables in 12 minutes. That is a single test result, rather than a promise of production throughput.',
     stack: ['Claude Code', 'Canva MCP', 'Remotion', 'FastAPI'], proof: '22 deliverables in one test pack',
   },
+];
+
+const translator: CaseStudy = {
+  slug: 'upgates-translator', title: 'Upgates AI Translator', company: 'E-commerce localisation', kind: 'automation',
+  summary: 'Translate product content while preserving markup and keeping an operator in control.',
+  problem: 'Catalogue translation has to preserve product structure, brand names and placeholders, while giving the operator a chance to review changes before writing back.',
+  architecture: 'A React review interface sits above a FastAPI service integrating the Upgates and OpenAI APIs. HTML-aware text processing, multi-shop configuration and live progress updates separate content transformation from catalogue writes.',
+  impact: 'Connects catalogue retrieval, translation, review and write-back in one workflow. Glossary, rate-limit and retry/resume handling are described in the project documentation; public throughput and quality measurements are not available.',
+  stack: ['Python', 'FastAPI', 'React', 'OpenAI API', 'Upgates API', 'Docker'], proof: 'HTML-aware translation · human review before write-back',
+};
+export const caseStudies: CaseStudy[] = [
+  studies.find(s => s.slug === 'cadema-voice-agent')!,
+  translator,
+  studies.find(s => s.slug === 'catalogue-migration')!,
+  studies.find(s => s.slug === 'cadema-configurator')!,
+  studies.find(s => s.slug === 'groupops')!,
+  studies.find(s => s.slug === 'n8n-pipelines')!,
+  studies.find(s => s.slug === 'marketing-lab')!,
 ];

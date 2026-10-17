@@ -16,6 +16,9 @@ const PAGES = [
   { name: "home", url: BASE_URL },
   { name: "work", url: `${BASE_URL}/work` },
   { name: "about", url: `${BASE_URL}/about` },
+  { name: "voice", url: `${BASE_URL}/work/cadema-voice-agent` },
+  { name: "translator", url: `${BASE_URL}/work/upgates-translator` },
+  { name: "catalogue", url: `${BASE_URL}/work/catalogue-migration` },
 ];
 
 const VIEWPORTS = [

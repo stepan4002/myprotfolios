@@ -14,7 +14,7 @@ try {
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    for (const route of ['/', '/work', '/about']) {
+    for (const route of ['/', '/work', '/about', '/work/cadema-voice-agent', '/work/upgates-translator', '/work/catalogue-migration', '/work/cadema-configurator', '/work/groupops', '/work/n8n-pipelines', '/work/marketing-lab']) {
       const response = await page.goto(base + route);
       await page.evaluate(() => document.fonts.ready);
       check(response.status() === 200, `${width} ${route} renders`);
@@ -24,13 +24,43 @@ try {
       check(await page.getByRole('link', { name: 'LinkedIn ↗', exact: true }).last().getAttribute('href') === 'https://www.linkedin.com/in/nikolas-stepan-545417221/', `${width} ${route} LinkedIn profile`);
       const badLinks = await page.locator('a[href]').evaluateAll(links => links.map(link => link.getAttribute('href')).filter(href => /^\/(sales|events|web|business|projects)([/?#]|$)/.test(href) || /^(https?:\/\/)(sales|events|ipa|ipam|web)\.nikolasstepan\.com/.test(href)));
       check(!badLinks.length, `${width} ${route} no obsolete portal links`);
-      if (route === '/work') {
-        check(await page.locator('.case-study-grid article').count() === 6, `${width} six architecture-and-impact case studies`);
-        for (const slug of ['groupops', 'cadema-voice-agent', 'n8n-pipelines']) check(await page.locator(`#${slug}`).count() === 1, `${width} featured ${slug} exists`);
-        const first = page.locator('.project-log details').first();
-        await first.locator('summary').click();
-        check(await first.getAttribute('open') !== null && await first.locator('p').first().isVisible(), `${width} project details expand`);
-        await first.locator('summary').click();
+      const visibleText = await page.locator('main').innerText();
+      check(!/Senior|PIN 1234/.test(visibleText), `${width} ${route} no unsupported seniority or published PIN`);
+      if (route === '/' || route === '/work') {
+        const links = await page.locator('.featured-grid .work-card h3 a').evaluateAll(items => items.map(item => item.getAttribute('href')));
+        check(JSON.stringify(links) === JSON.stringify(['/work/cadema-voice-agent','/work/upgates-translator','/work/catalogue-migration']), `${width} ${route} evidence-first project order and dedicated pages`);
+        check(!visibleText.includes('70+'), `${width} ${route} no agent-count headline`);
+      }
+      if (route === '/') {
+        check(await page.getByRole('link', { name: 'Download CV ↓', exact: true }).first().getAttribute('href') === '/downloads/Nikolas-Stepan-CV.pdf', `${width} CV download near introduction`);
+        if (width < 768) check((await page.locator('.work-card').first().boundingBox()).y < 1050, `${width} first project appears sooner on mobile`);
+      }
+      if (route === '/work/cadema-voice-agent') {
+        await page.getByRole('button', { name: 'Custom quote', exact: true }).click();
+        check(await page.locator('.route-result').innerText().then(text => text.includes('Escalate to a person')), `${width} custom quote escalates`);
+        await page.getByRole('button', { name: 'Uncertain answer', exact: true }).click();
+        check(await page.locator('.route-result').innerText().then(text => text.includes('unverified date')), `${width} unknown date is not promised`);
+      }
+      if (route === '/work/upgates-translator') {
+        const write = page.getByRole('button', { name: 'Simulate write', exact: true });
+        check(await write.isDisabled(), `${width} write blocked before preview`);
+        await page.getByRole('button', { name: 'Translate sample', exact: true }).click();
+        check(await write.isDisabled(), `${width} write blocked before approval`);
+        check((await page.locator('.demo-code').last().innerText()).includes('{{delivery_days}}'), `${width} translation retains placeholder`);
+        await page.getByRole('button', { name: 'Approve preview', exact: true }).click();
+        check(await write.isEnabled(), `${width} approval enables simulated write`);
+        await write.click();
+        check((await page.locator('.demo-code').last().innerText()).includes('no external API was called'), `${width} simulated write accurately disclosed`);
+        await page.getByRole('button', { name: 'Reset', exact: true }).click();
+        check(await write.isDisabled(), `${width} reset revokes simulated approval`);
+      }
+      if (route === '/work/catalogue-migration') {
+        await page.getByRole('button', { name: 'Run sample reconciliation', exact: true }).click();
+        check((await page.locator('.route-result').innerText()).includes('2 matched · 1 review · 1 unmatched'), `${width} reconciliation handles ambiguous and missing records`);
+      }
+      if (route.startsWith('/work/')) {
+        check(await page.getByRole('heading', { name: 'My contribution', exact: true }).count() === 1, `${width} ${route} contribution is explicit`);
+        check(await page.getByRole('heading', { name: 'Results & measurement gaps', exact: true }).count() === 1, `${width} ${route} measurements are scoped`);
       }
       if (route === '/' && width < 768) {
         await page.getByRole('button', { name: 'Menu +' }).click();
@@ -48,7 +78,8 @@ try {
     const response = await page.request.get(base + route, { maxRedirects: 0 });
     check(response.status() === 308 && response.headers().location === '/work', `${route} permanently redirects to unified Work`);
   }
-  for (const route of ['/sales', '/events', '/ipa', '/ipam']) check((await page.request.get(base + route)).status() === 404, `${route} removed`);
+  for (const asset of ['/downloads/Nikolas-Stepan-CV.pdf', '/evidence/portfolio_reference.py', '/evidence/test_portfolio_reference.py', '/evidence/README.md']) { const response = await page.request.get(base + asset); check(response.status() === 200, `${asset} downloadable`); if (asset.endsWith('.pdf')) check((await response.body()).subarray(0,4).toString() === '%PDF', 'CV response is an actual PDF'); }
+  for (const route of ['/sales', '/events', '/ipa', '/ipam', '/work/not-a-project']) check((await page.request.get(base + route)).status() === 404, `${route} removed`);
 } finally { await browser.close(); }
 await fs.mkdir(out, { recursive: true });
 await fs.writeFile(path.join(out, 'migration-checks.json'), JSON.stringify({ base, checks: results.length, failures, results }, null, 2));
