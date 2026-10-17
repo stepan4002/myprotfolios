@@ -3,18 +3,14 @@ import { chromium, devices } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const OUT = path.resolve("scripts/mobile-screenshots");
+const OUT = path.resolve(process.env.PORTFOLIO_QA_DIR || "scripts/mobile-screenshots");
 await fs.mkdir(OUT, { recursive: true });
 
+const BASE_URL = process.env.PORTFOLIO_URL || "http://127.0.0.1:4317";
 const PAGES = [
-  { name: "main",            url: "https://nikolasstepan.com" },
-  { name: "main-about",      url: "https://nikolasstepan.com/about" },
-  { name: "main-events-tab", url: "https://nikolasstepan.com/events" },
-  { name: "main-web-tab",    url: "https://nikolasstepan.com/web" },
-  { name: "main-sales-tab",  url: "https://nikolasstepan.com/sales" },
-  { name: "events",          url: "https://events.nikolasstepan.com" },
-  { name: "web",             url: "https://web.nikolasstepan.com" },
-  { name: "sales",           url: "https://sales.nikolasstepan.com" },
+  { name: "home", url: BASE_URL },
+  { name: "work", url: `${BASE_URL}/work` },
+  { name: "about", url: `${BASE_URL}/about` },
 ];
 
 const browser = await chromium.launch({ headless: true });

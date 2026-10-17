@@ -1,42 +1,53 @@
-# nikolasstepan.com — Portfolio Monorepo
+# Nikolas Stepan — Unified AI Engineering Portfolio
 
-Four-app monorepo backing `nikolasstepan.com` and its three subdomains.
+One Next.js 16 / React 19 / TypeScript / Tailwind 4 app, deployed from `apps/main`.
 
-## Apps
+## Develop and verify
 
-| Path | Stack | Deployed at |
-|---|---|---|
-| [`apps/main`](apps/main) | Next.js 16 + React 19 + Three.js | https://nikolasstepan.com |
-| [`apps/events`](apps/events) | Static HTML | https://events.nikolasstepan.com |
-| [`apps/web`](apps/web) | Vite + React 18 + Three.js | https://web.nikolasstepan.com |
-| [`apps/sales`](apps/sales) | Static HTML (custom) | https://sales.nikolasstepan.com |
+- `npm run dev:main`
+- `npm run build:main`
+- `npm --prefix apps/main run lint`
+- `node scripts/mobile-smoke.mjs`
+- `node scripts/main-audit.mjs`
 
-Each app is its own Vercel project, all pointing at this repo with a different "Root Directory" setting. Pushes to `main` auto-deploy.
+For browser checks, run `npm install` and `npx playwright install chromium` at the repository root. `npm run test:migration` runs the 415 migration checks.
 
-## Local development
+Audit scripts default to `http://127.0.0.1:4317`; override with `PORTFOLIO_URL` and `PORTFOLIO_QA_DIR`.
 
-Each app is self-contained — `cd` into it and run its own scripts.
+## Structure
 
-```bash
-# Main (Next.js)
-cd apps/main && npm install && npm run dev      # → http://localhost:3000
+- `/`: Forward Deployed AI Engineer / AI Solutions Architect positioning and featured work.
+- `/work`: Unified case studies, architecture, operational impact, and wider project catalogue.
+- `/about`: Technical capabilities, founder/operator background, languages, and Budapest location.
+- `/work/[slug]`: Seven dedicated case studies with contribution, architecture, failure paths, delivery scope and measurement gaps.
+- `/downloads/Nikolas-Stepan-CV.pdf`: Public CV generated from the shared profile.
+- `/evidence/`: Clearly labelled synthetic reference examples, Python tests and run instructions.
+- `/web`, `/projects`, `/business`: Permanent redirects to `/work`.
+- `/sales`, `/events`, `/ipa`, `/ipam`: Removed; return 404.
 
-# Events (static)
-# Open apps/events/index.html in browser, or:
-cd apps/events && npx serve .                   # → http://localhost:3000
+## Content and design
 
-# Web (Vite)
-cd apps/web && npm install && npm run dev       # → http://localhost:5173
+`src/data/work.ts` contains curated case studies. Original Main projects, migrated Web projects, and Sales business context remain under `src/data`. `business-source.json` retains the extracted Sales text for future editing; it is not imported into the website bundle.
 
-# Sales (static)
-cd apps/sales && npx serve .                    # → http://localhost:3000
-```
+Migrated procedural SVG artwork uses Main's CSS tokens. Global styling lives in `src/app/globals.css`; Tailwind 4 uses the existing PostCSS configuration.
 
-## Layout philosophy
-
-- The **main domain** (`nikolasstepan.com`) gives the full picture — tabbed view with a dashboard plus condensed sections for each track. Each section links out to its full specialized portfolio.
-- Each **subdomain** is a focused, single-purpose portfolio. Send the relevant subdomain when you want someone to see only one aspect of the work.
+Claims come from the previous portfolio. GroupOps pod maturity and Marketing Lab's single-test result are stated explicitly. Add independently verified evidence before strengthening outcome claims.
 
 ## Deployment
 
-Vercel auto-detects the framework per `apps/<name>` and rebuilds only the apps whose files changed on each push.
+Vercel project: `nikolasstepan-main`. Main domain: `nikolasstepan.com`.
+Sales, Events, IPA and Web Vercel projects were deleted during migration. The Web subdomain now permanently redirects to Main. Sales, Events and IPA subdomains return 404.
+
+Production build and lint pass. All 415 migration checks passed both locally and against production; twelve desktop/mobile visual renders reported no layout issues.
+
+Original Sales and Web source backups are in the sibling `Portfolio Migration Archive` directory and in Git history. The archive is outside the deployed app.
+
+## Evidence and public-profile maintenance
+
+The homepage prioritises Voice Agent, Upgates Translator and Catalogue Automation. Project cards link to dedicated pages. The broad archive is no longer rendered; Paperclip/Postiz are explicitly attributed as third-party platforms.
+
+`src/data/profile.json` supplies the shared public profile. Generate the one-page CV with `python scripts/build-public-cv.py` (ReportLab required). Education titles remain conservative because existing source drafts disagree; see `docs/evidence-needed.md`.
+
+Reference examples use synthetic fixtures and make no production service calls. Run their nine tests with `python -B -m unittest discover -s apps/main/public/evidence -p test_portfolio_reference.py`. They do not substantiate production reliability, throughput or business outcomes.
+
+`docs/linkedin-profile-update.md` is paste-ready copy only; no LinkedIn profile edit was performed. The published museum default PIN is removed from current source. Runtime credential changes require the museum application/deployment, which is not part of this repository.

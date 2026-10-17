@@ -2,11 +2,14 @@
   "name": "myprotfolios",
   "private": true,
   "version": "0.0.0",
-  "description": "Monorepo for nikolasstepan.com — main portfolio + three specialized subdomains. Each app under apps/ is self-contained; install + build inside the app's folder.",
+  "description": "Unified portfolio for nikolasstepan.com",
   "scripts": {
     "dev:main": "cd apps/main && npm run dev",
-    "dev:web": "cd apps/web && npm run dev",
     "build:main": "cd apps/main && npm run build",
-    "build:web": "cd apps/web && npm run build"
+    "lint:main": "npm --prefix apps/main run lint",
+    "test:migration": "node scripts/migration-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
   }
 }

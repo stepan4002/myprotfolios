@@ -8,16 +8,17 @@ import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const OUT = path.resolve("scripts/main-audit");
+const OUT = path.resolve(process.env.PORTFOLIO_QA_DIR || "scripts/main-audit");
 await fs.mkdir(OUT, { recursive: true });
 
+const BASE_URL = process.env.PORTFOLIO_URL || "http://127.0.0.1:4317";
 const PAGES = [
-  { name: "home",     url: "https://nikolasstepan.com" },
-  { name: "about",    url: "https://nikolasstepan.com/about" },
-  { name: "events",   url: "https://nikolasstepan.com/events" },
-  { name: "web",      url: "https://nikolasstepan.com/web" },
-  { name: "sales",    url: "https://nikolasstepan.com/sales" },
-  { name: "projects", url: "https://nikolasstepan.com/projects" },
+  { name: "home", url: BASE_URL },
+  { name: "work", url: `${BASE_URL}/work` },
+  { name: "about", url: `${BASE_URL}/about` },
+  { name: "voice", url: `${BASE_URL}/work/cadema-voice-agent` },
+  { name: "translator", url: `${BASE_URL}/work/upgates-translator` },
+  { name: "catalogue", url: `${BASE_URL}/work/catalogue-migration` },
 ];
 
 const VIEWPORTS = [
@@ -109,6 +110,9 @@ for (const vp of VIEWPORTS) {
         const texts = [];
         document.querySelectorAll("h1, h2, h3, h4, p, a, span, em, strong, blockquote, li").forEach((el) => {
           if (el.children.length > 0) return;
+          // Collapsed details content has layout boxes in Chromium but is not painted.
+          const collapsed = el.closest('details:not([open])');
+          if (collapsed && !el.closest('summary')) return;
           const txt = (el.textContent ?? "").trim();
           if (txt.length < 3) return;
           const r = el.getBoundingClientRect();

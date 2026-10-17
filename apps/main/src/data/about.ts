@@ -1,26 +1,20 @@
 import type { TimelineEntry, Language, SkillBlock } from '@/lib/types';
 
-export const bio = {
-  shortVersion: [
-    'I co-founded my first company, CADEMA (a Czech wooden-structures manufacturer), at sixteen. Six years later it has a 3D configurator, a Czech-language voice agent, a parametric Blender pipeline, and a fully migrated Upgates storefront — all of which I built. Along the way I co-founded GemArt in 2022 (a cultural NGO in the Gemer region of Slovakia) and started Gemcraft in 2025 (B2B craft-workshop sales).',
-    'The day-job has always been: see the workflow that\'s bottlenecking the business → build the software that removes the bottleneck → live with the consequences as a user. That loop — not a degree — is what taught me to ship. It\'s also why I\'m looking now for a senior eng / solutions-engineer / founding-engineer role at a company building something I\'d happily live with for years.',
-    'Outside of code I\'m also finishing an MSc in Health & Clinical Psychology at Birkbeck (University of London), on top of an honours BSc in Psychology with Counselling at the Open University. The psych background isn\'t decoration — it\'s what makes me good at multi-agent persona design and at user-facing AI work.',
-  ],
-  lede: "I'm a technical founder, multilingual, comfortable as deep in the stack as you need to go — and I keep my work close to the people who actually use it.",
-};
+import profile from './profile.json';
+export const bio = { shortVersion: [profile.summary, profile.education], lede: profile.summary };
 
 export const skills: SkillBlock[] = [
   {
     title: 'Production AI systems',
     description:
-      'Multi-agent orchestration with role separation, persona + memory architectures, MCP integrations (Blender, Canva, Hyper3D), Twilio voice agents, hard-tested in Czech and Slovak.',
+      'Multi-agent orchestration with role separation, persona + memory architectures, MCP integrations (Blender, Canva, Hyper3D), Twilio voice-agent integration with Czech-language constraints.',
     recent:
       'Marketing Lab (9 agents) · Gemer Times newsroom (6 agents) · Gemcraft CEO Agent · CADEMA voice agent',
   },
   {
     title: 'Full-stack web',
     description:
-      'React 18/19, Next.js 15/16, NestJS, Fastify, FastAPI — with real production deployments on Hetzner, Vercel, Docker Compose. Equally happy in TypeScript or Python.',
+      'React 18/19, Next.js 15/16, NestJS, Fastify, FastAPI — with real production deployments on Hetzner, Vercel, Docker Compose. Implementation in TypeScript and Python is AI-assisted; my contribution centres on architecture, integration and deployment.',
     recent:
       'GemMark (Next 16 / R19 / Three.js) · Mission Control (FastAPI + Expo) · Upgates AI translator',
   },
@@ -39,7 +33,7 @@ export const skills: SkillBlock[] = [
   {
     title: 'Scraping & enrichment',
     description:
-      'Playwright + Scrapling + BeautifulSoup pipelines with three-tier fallback chains, resume / progress files, polite throttling, anti-block strategies. Real production tonnage.',
+      'Playwright + Scrapling + BeautifulSoup pipelines with three-tier fallback chains, resume / progress files, polite throttling, anti-block strategies. Designed around operational data and explicit exception handling.',
     recent: 'Schools.sk · Companies.sk · AI Gemer Researcher',
   },
   {
@@ -51,11 +45,11 @@ export const skills: SkillBlock[] = [
 ];
 
 export const languages: Language[] = [
-  { name: 'English', level: 'Native / Bilingual', proficiency: 100 },
-  { name: 'French', level: 'Native / Bilingual', proficiency: 100 },
-  { name: 'Spanish', level: 'Native / Bilingual', proficiency: 100 },
-  { name: 'Czech', level: 'Native / Bilingual', proficiency: 100 },
-  { name: 'Slovak', level: 'Native / Bilingual', proficiency: 100 },
+  { name: 'English', level: 'Fluent', proficiency: 100 },
+  { name: 'French', level: 'Fluent', proficiency: 100 },
+  { name: 'Spanish', level: 'Fluent', proficiency: 100 },
+  { name: 'Czech', level: 'Native', proficiency: 100 },
+  { name: 'Slovak', level: 'Native', proficiency: 100 },
   { name: 'Hungarian', level: 'None', proficiency: 6 },
 ];
 
@@ -65,11 +59,11 @@ export const timeline: TimelineEntry[] = [
     title: 'Founder — Gemcraft',
     org: 'Štítnik, SK · Glass & ceramic craft workshops',
     description:
-      'B2B craft-workshop brand. Built the entire technical and operational stack solo: a Python prospect-enrichment pipeline for ~3,400 Slovak schools and SMEs, an Outlook-COM email engine with inline-image MIME, and an autonomous CEO-agent persona/memory framework on Claude.',
+      'B2B craft-workshop brand. Directed AI-assisted delivery of the technical and operational tooling: a Python prospect-enrichment pipeline for ~3,400 Slovak schools and SMEs, an Outlook-COM email engine with inline-image MIME, and an autonomous CEO-agent persona/memory framework on Claude.',
   },
   {
     period: '2025 — 2026',
-    title: 'MSc Health & Clinical Psychology',
+    title: 'Postgraduate psychology studies',
     org: 'Birkbeck, University of London',
     description:
       'Postgraduate research-track psychology — complementing the engineering work with formal training in human behaviour, evidence-based intervention design and quantitative methods.',
@@ -83,7 +77,7 @@ export const timeline: TimelineEntry[] = [
   },
   {
     period: '2022 — 2025',
-    title: 'BSc (Hons) Psychology with Counselling',
+    title: 'Psychology studies',
     org: 'The Open University',
   },
   {
@@ -91,7 +85,7 @@ export const timeline: TimelineEntry[] = [
     title: 'Co-Founder — CADEMA LTD',
     org: 'Czechia · Wooden garden structures',
     description:
-      'Co-founded a Czech manufacturer of wooden garden structures at age 16. Own all software: a Czech-language voice agent on Twilio, a React + Three.js 3D configurator, a parametric Blender + MCP CAD/render pipeline, a 314-SKU PrestaShop → Upgates migration, and the full CE/ES regulatory documentation set.',
+      'Co-founded a Czech manufacturer of wooden garden structures at age 16. Defined requirements and directed AI-assisted delivery for: a Czech-language voice agent on Twilio, a React + Three.js 3D configurator, a parametric Blender + MCP CAD/render pipeline, a 314-SKU PrestaShop → Upgates migration, and the full CE/ES regulatory documentation set.',
   },
   {
     period: '—',
@@ -107,7 +101,7 @@ export const timeline: TimelineEntry[] = [
 
 export const workingPreferences = {
   lookingFor: [
-    'Senior / staff full-stack or AI engineer at an international scaleup or AI-native company.',
+    'AI Solutions Engineer or Forward Deployed Engineer working on operational integrations.',
     'Forward-deployed / solutions engineer at an AI infra company (Anthropic, OpenAI, Vercel, ElevenLabs, LangChain, Cursor …).',
     'Founding engineer at a remote-first early-stage startup.',
     'Roles where multilingual range — especially Czech / Slovak / French / Spanish — is an asset, not a tax.',

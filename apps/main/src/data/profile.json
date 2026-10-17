@@ -1,0 +1,35 @@
+{
+  "name": "Nikolas Stepan",
+  "title": "AI Solutions Engineer / Forward Deployed Engineer",
+  "location": "Budapest, Hungary",
+  "arrangements": "Remote roles are my first preference. Based in Hungary, I can also work on-site in Hungary with English-speaking teams. I do not speak Hungarian.",
+  "email": "nikostepan24@gmail.com",
+  "github": "https://github.com/stepan4002",
+  "linkedin": "https://www.linkedin.com/in/nikolas-stepan-545417221/",
+  "website": "https://nikolasstepan.com",
+  "summary": "Technical founder translating business workflows into AI-assisted applications and integrations. My contribution centres on requirements, architecture, AI-assisted implementation, API integration, testing and deployment. I use Claude Code and other AI tools to connect system design, integrations and operational requirements.",
+  "languages": [
+    {
+      "name": "Czech",
+      "level": "Native"
+    },
+    {
+      "name": "Slovak",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "French",
+      "level": "Fluent"
+    },
+    {
+      "name": "Spanish",
+      "level": "Fluent"
+    }
+  ],
+  "education": "Psychology studies at the Open University and postgraduate study at Birkbeck, University of London.",
+  "cv": "/downloads/Nikolas-Stepan-CV.pdf"
+}
