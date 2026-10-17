@@ -10,6 +10,8 @@ One Next.js 16 / React 19 / TypeScript / Tailwind 4 app, deployed from `apps/mai
 - `node scripts/mobile-smoke.mjs`
 - `node scripts/main-audit.mjs`
 
+For browser checks, run `npm install` and `npx playwright install chromium` at the repository root. `npm run test:migration` runs the 107 migration checks.
+
 Audit scripts default to `http://127.0.0.1:4317`; override with `PORTFOLIO_URL` and `PORTFOLIO_QA_DIR`.
 
 ## Structure
@@ -31,6 +33,8 @@ Claims come from the previous portfolio. GroupOps pod maturity and Marketing Lab
 ## Deployment
 
 Vercel project: `nikolasstepan-main`. Main domain: `nikolasstepan.com`.
-Sales, Events and IPA Vercel projects were deleted during migration. Web is retired after the unified Main deployment is verified.
+Sales, Events, IPA and Web Vercel projects were deleted during migration. The Web subdomain now permanently redirects to Main. Sales, Events and IPA subdomains return 404.
+
+Production build and lint pass. All 107 migration checks passed both locally and against production; six desktop/mobile visual renders reported no layout issues.
 
 Original Sales and Web source backups are in the sibling `Portfolio Migration Archive` directory and in Git history. The archive is outside the deployed app.

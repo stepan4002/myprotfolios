@@ -5,6 +5,11 @@
   "description": "Unified portfolio for nikolasstepan.com",
   "scripts": {
     "dev:main": "cd apps/main && npm run dev",
-    "build:main": "cd apps/main && npm run build"
+    "build:main": "cd apps/main && npm run build",
+    "lint:main": "npm --prefix apps/main run lint",
+    "test:migration": "node scripts/migration-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
   }
 }
