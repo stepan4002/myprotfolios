@@ -1,42 +1,36 @@
-# nikolasstepan.com — Portfolio Monorepo
+# Nikolas Stepan — Unified AI Engineering Portfolio
 
-Four-app monorepo backing `nikolasstepan.com` and its three subdomains.
+One Next.js 16 / React 19 / TypeScript / Tailwind 4 app, deployed from `apps/main`.
 
-## Apps
+## Develop and verify
 
-| Path | Stack | Deployed at |
-|---|---|---|
-| [`apps/main`](apps/main) | Next.js 16 + React 19 + Three.js | https://nikolasstepan.com |
-| [`apps/events`](apps/events) | Static HTML | https://events.nikolasstepan.com |
-| [`apps/web`](apps/web) | Vite + React 18 + Three.js | https://web.nikolasstepan.com |
-| [`apps/sales`](apps/sales) | Static HTML (custom) | https://sales.nikolasstepan.com |
+- `npm run dev:main`
+- `npm run build:main`
+- `npm --prefix apps/main run lint`
+- `node scripts/mobile-smoke.mjs`
+- `node scripts/main-audit.mjs`
 
-Each app is its own Vercel project, all pointing at this repo with a different "Root Directory" setting. Pushes to `main` auto-deploy.
+Audit scripts default to `http://127.0.0.1:4317`; override with `PORTFOLIO_URL` and `PORTFOLIO_QA_DIR`.
 
-## Local development
+## Structure
 
-Each app is self-contained — `cd` into it and run its own scripts.
+- `/`: Forward Deployed AI Engineer / AI Solutions Architect positioning and featured work.
+- `/work`: Unified case studies, architecture, operational impact, and wider project catalogue.
+- `/about`: Technical capabilities, founder/operator background, languages, and Budapest location.
+- `/web`, `/projects`, `/business`: Permanent redirects to `/work`.
+- `/sales`, `/events`, `/ipa`, `/ipam`: Removed; return 404.
 
-```bash
-# Main (Next.js)
-cd apps/main && npm install && npm run dev      # → http://localhost:3000
+## Content and design
 
-# Events (static)
-# Open apps/events/index.html in browser, or:
-cd apps/events && npx serve .                   # → http://localhost:3000
+`src/data/work.ts` contains curated case studies. Original Main projects, migrated Web projects, and Sales business context remain under `src/data`. `business-source.json` retains the extracted Sales text for future editing; it is not imported into the website bundle.
 
-# Web (Vite)
-cd apps/web && npm install && npm run dev       # → http://localhost:5173
+Migrated procedural SVG artwork uses Main's CSS tokens. Global styling lives in `src/app/globals.css`; Tailwind 4 uses the existing PostCSS configuration.
 
-# Sales (static)
-cd apps/sales && npx serve .                    # → http://localhost:3000
-```
-
-## Layout philosophy
-
-- The **main domain** (`nikolasstepan.com`) gives the full picture — tabbed view with a dashboard plus condensed sections for each track. Each section links out to its full specialized portfolio.
-- Each **subdomain** is a focused, single-purpose portfolio. Send the relevant subdomain when you want someone to see only one aspect of the work.
+Claims come from the previous portfolio. GroupOps pod maturity and Marketing Lab's single-test result are stated explicitly. Add independently verified evidence before strengthening outcome claims.
 
 ## Deployment
 
-Vercel auto-detects the framework per `apps/<name>` and rebuilds only the apps whose files changed on each push.
+Vercel project: `nikolasstepan-main`. Main domain: `nikolasstepan.com`.
+Sales, Events and IPA Vercel projects were deleted during migration. Web is retired after the unified Main deployment is verified.
+
+Original Sales and Web source backups are in the sibling `Portfolio Migration Archive` directory and in Git history. The archive is outside the deployed app.

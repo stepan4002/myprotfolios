@@ -1,7 +1,7 @@
 'use client';
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, OrbitControls, Text } from '@react-three/drei';
+import { Float, OrbitControls } from '@react-three/drei';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import type { Project } from '@/lib/types';
@@ -11,15 +11,11 @@ type Category = Project['category'];
 
 const CATEGORY_COLOR: Record<Category, string> = {
   tech:   '#1F3FBB',
-  events: '#B14A2F',
-  sales:  '#0B7355',
 };
 
 const FILTERS: { id: Category | 'all'; label: string }[] = [
   { id: 'all',    label: 'All' },
   { id: 'tech',   label: 'Apps & AI' },
-  { id: 'events', label: 'Events' },
-  { id: 'sales',  label: 'Sales' },
 ];
 
 /* ── geometry helpers ───────────────────────────────────────────── */
@@ -68,12 +64,7 @@ function ProjectNode({
     (ref.current.material as THREE.MeshStandardMaterial).opacity = visible ? 1 : 0.05;
   });
 
-  const Geo =
-    project.category === 'events'
-      ? <boxGeometry args={[0.42, 0.42, 0.42]} />
-      : project.category === 'sales'
-      ? <octahedronGeometry args={[0.32, 0]} />
-      : <sphereGeometry args={[0.32, 24, 24]} />;
+  const Geo = <sphereGeometry args={[0.32, 24, 24]} />;
 
   return (
     <Float speed={1.4} rotationIntensity={0.4} floatIntensity={0.5}>

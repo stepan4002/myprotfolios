@@ -31,7 +31,7 @@ export const projects: Project[] = [
     slug: 'upgates-migration',
     title: 'Moving 314 SKUs from PrestaShop to Upgates, with the data nobody wants to clean.',
     titleEmphasis: 'from PrestaShop to Upgates',
-    category: 'sales',
+    category: 'tech',
     company: 'CADEMA s.r.o.',
     techStack: [
       'Python',
@@ -348,7 +348,7 @@ export const projects: Project[] = [
     slug: 'schools-sk',
     title: 'Schools.sk \u2014 ~3,400 Slovak schools, scrape \u2192 segment \u2192 personalised email \u2192 audit log.',
     titleEmphasis: '~3,400 Slovak schools, scrape \u2192 segment \u2192 personalised email \u2192 audit log.',
-    category: 'sales',
+    category: 'tech',
     company: 'Gemcraft',
     techStack: [
       'Python 3',
@@ -373,7 +373,7 @@ export const projects: Project[] = [
     slug: 'companies-sk',
     title: 'Companies.sk \u2014 B2B prospect generation with three-tier enrichment fallbacks.',
     titleEmphasis: 'B2B prospect generation with three-tier enrichment fallbacks.',
-    category: 'sales',
+    category: 'tech',
     company: 'Gemcraft',
     techStack: [
       'Python 3',
@@ -397,7 +397,7 @@ export const projects: Project[] = [
     slug: 'gemmark',
     title: 'GemMark \u2014 Next.js 16 + React 19 + Three.js, on the bleeding edge.',
     titleEmphasis: 'Next.js 16 + React 19 + Three.js, on the bleeding edge.',
-    category: 'events',
+    category: 'tech',
     company: 'gemmark.sk',
     techStack: [
       'Next.js 16',
@@ -476,7 +476,7 @@ export const projects: Project[] = [
     slug: 'gregor',
     title: 'Gregor Gallo \u2014 a mayoral campaign site that ships in a day.',
     titleEmphasis: 'a mayoral campaign site that ships in a day.',
-    category: 'events',
+    category: 'tech',
     company: 'gregorgallo.sk',
     techStack: [
       'HTML5 \u00b7 CSS3',
@@ -499,7 +499,7 @@ export const projects: Project[] = [
     slug: 'gemotion',
     title: 'GEMOTION \u2014 a youth sports academy site, parents on phones.',
     titleEmphasis: 'a youth sports academy site, parents on phones.',
-    category: 'events',
+    category: 'tech',
     company: 'gemotion.sk',
     techStack: [
       'HTML5 \u00b7 CSS',
